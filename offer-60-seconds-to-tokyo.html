@@ -564,10 +564,10 @@ nav[aria-label="Breadcrumb"],.crumbs,.ar-cr{text-transform:uppercase}
 .fm-sl input[type=range]::-moz-range-track{background:none}
 .fm-sl input[type=range]::-moz-range-thumb{pointer-events:auto;width:20px;height:20px;border-radius:50%;background:#0c1524;border:2px solid var(--c);cursor:grab}
 .fm-in{display:flex;gap:14px}
-.fm-f{position:relative;flex:1;height:64px;border:1px solid var(--sec);background:#0c1524;padding:11px 14px 0;transition:border-color .3s}
+.fm-f{position:relative;flex:1;height:64px;border:1px solid var(--sec);background:#0c1524;padding:0 16px;display:flex;flex-direction:column;justify-content:center;gap:2px;transition:border-color .3s}
 .fm-f:hover,.fm-f:focus-within{border-color:var(--c)}
 .fm-f label{display:block;font-size:11px;color:var(--sec);line-height:1.4}
-.fm-f input{display:block;width:100%;background:none;border:0;outline:0;color:#fff;font:500 14px/1.4 'Montserrat',sans-serif;padding:2px 0 0}
+.fm-f input{display:block;width:100%;background:none;border:0;outline:0;color:#fff;font:500 14px/20px 'Montserrat',sans-serif;padding:0}
 .fm-cu{width:192px;flex:none;position:relative}
 .fm-cu .fm-t{font-size:14px;margin-bottom:14px}
 .fm-sel{width:100%;height:48px;border:1px solid var(--sec);display:flex;align-items:center;justify-content:space-between;padding:0 15px;font-size:14px;font-weight:500;transition:border-color .3s}
@@ -599,8 +599,17 @@ nav[aria-label="Breadcrumb"],.crumbs,.ar-cr{text-transform:uppercase}
 .fm-ap:hover::before{transform:scaleX(1)}.fm-ap:active{scale:.98}
 .chip .fn{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;margin-left:2px;border-radius:9px;background:var(--c);color:var(--bg);font-size:10px;font-weight:700;letter-spacing:0}
 html.fm-lock{overflow:hidden}
-@media(max-width:760px){.fm-pr{flex-direction:column}.fm-cu{width:100%}.fm-pl{max-width:none;width:100%}.fm-g{grid-template-columns:repeat(2,minmax(0,1fr))}.fm-b{padding:24px 20px}.fm-fr{width:calc(100% - 40px)}}
-@media(max-width:480px){.fm-g{grid-template-columns:1fr}.fm-ap{padding:0 28px}.fm-in{flex-direction:column}}
+@media(max-width:760px){.fm-pr{flex-direction:column}.fm-cu{width:100%}.fm-pl{max-width:none;width:100%}.fm-g{grid-template-columns:repeat(2,minmax(0,1fr))}.fm-b{padding:24px 20px}.fm-fr{width:calc(100% - 40px)}
+.fm{align-items:flex-end;padding:0}
+.fm-p{width:100%;max-height:88vh;max-height:88dvh;border-radius:16px 16px 0 0;border-top:1px solid rgba(246,230,202,.2);opacity:1;transform:translateY(100%);transition:transform .5s var(--e);box-shadow:0 -8px 32px rgba(0,0,0,.4)}
+.fm.on .fm-p{transform:none}
+.fm-p::before{content:"";flex:none;width:40px;height:4px;border-radius:2px;background:rgba(237,237,237,.3);margin:10px auto 0}
+.fm-b{padding:16px 20px 24px;gap:20px}
+.fm-h h2{font-size:20px}
+.fm-ft{height:auto;padding-bottom:max(12px,env(safe-area-inset-bottom));gap:12px}
+.fm-fr{align-items:center}.fm-rs{height:48px}
+}
+@media(max-width:480px){.fm-g{grid-template-columns:1fr}.fm-ap{padding:0 28px}.fm-in{flex-direction:column}.fm-f{flex:none}}
 @media(prefers-reduced-motion:reduce){.fm-p,.fm-ov{transition:none}}
 
 /* ===== ARTICLES PAGE ===== */
@@ -878,6 +887,38 @@ html.fm-lock{overflow:hidden}
 .od-rl>.ar-ob{order:2}
 .od-rh .od-pg{order:3;margin-left:auto}
 .od-rh{margin-bottom:24px}
+.od-sn{display:none}
+@media(max-width:1100px){
+.od-sn{display:flex;gap:8px;position:sticky;top:64px;z-index:20;margin:0 0 16px;padding:12px var(--ax);overflow-x:auto;scrollbar-width:none;background:rgba(12,21,36,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(246,230,202,.18)}
+.od-sn::-webkit-scrollbar{display:none}
+.od-sn a{flex:none;border:1px solid rgba(255,255,255,.2);padding:8px 14px;font-size:13px;line-height:18px;white-space:nowrap;color:var(--sec);transition:color .3s,border-color .3s,background .3s}
+.od-sn a.on{border-color:var(--c);color:#fff;font-weight:700;background:rgba(246,230,202,.08)}
+.od-tabs{display:none}
+.od-side{max-height:none;overflow:visible}
+.od-pn,.od-pn[hidden]{display:none}
+.od-t-summary #od-summary,.od-t-overview #od-overview,.od-t-terms #od-terms{display:flex}
+.od-list{display:none}
+.od-t-participants .od-list{display:flex}
+
+}
+@media(max-width:1100px){
+.od-sn{margin-bottom:0}
+.od-main{gap:0}
+.od-t-participants .od-card .od-sh,.od-t-participants .od-pc{display:none}
+.od-t-participants .od-b{padding:16px 20px 20px;gap:4px}
+.od-t-participants .od-b h1{font-size:22px;line-height:30px}
+.od-t-participants .od-list{padding-top:0}
+.od-t-participants .od-hd{gap:12px;margin-bottom:0}
+.od-t-participants .od-hd h2{font-size:18px;line-height:26px}
+.od-t-participants .od-fb{gap:8px;margin-top:0}
+.od-t-participants .od-g{margin-top:0}
+}
+@media(max-width:1100px){
+.od-main{align-items:stretch}
+.od-t-participants .od-list{gap:12px}
+.od-t-participants .od-card{margin-bottom:24px}
+}
+@media(max-width:1100px){.od-main{padding-top:16px}}
 /*bk*/
 .bk{position:absolute;top:100%;left:0;right:0;z-index:5;visibility:hidden;opacity:0;translate:0 -10px;max-height:calc(100vh - 80px);overflow:visible;background:#091a36;border-top:1px solid rgba(246,230,202,.28);border-bottom:1px solid rgba(246,230,202,.28);box-shadow:0 30px 60px rgba(0,0,0,.45);transition:opacity .35s,translate .55s var(--e),visibility 0s .35s}
 .bk.open{visibility:visible;opacity:1;translate:0 0;transition-delay:0s}
@@ -1053,13 +1094,14 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 <header class="nav fig"><a class="logo" href="index.html"><img src="assets/logo.svg" alt="Aston" width="160" height="64"></a>
 <nav class="links"><a href="index.html">HOTELS</a><a class="on" href="offers.html" aria-current="page">OFFERS</a><a href="meetings.html">MEETINGS</a><a href="#">WEDDINGS</a><div class="pr"><button class="prb" type="button" aria-haspopup="true" aria-expanded="false">PRESS ROOM<img src="assets/chevron-down.svg" alt="" width="14" height="14"></button><div class="prm" role="menu"><a role="menuitem" href="news.html">News &amp; Press</a><a role="menuitem" href="articles.html">Articles</a></div></div></nav>
 <div class="navr"><img src="assets/nav-icon.svg" alt="" width="29" height="30"><div class="lg"><button class="lgb" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Change language"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.8 1.7 2.7 3.8 2.7 6.3S9.8 12.6 8 14.3C6.2 12.6 5.3 10.5 5.3 8S6.2 3.4 8 1.7z"/></svg><span>EN</span></button><div class="prm lgm" role="menu"><button type="button" role="menuitem" class="on" data-l="EN">English</button><button type="button" role="menuitem" data-l="ID">Bahasa Indonesia</button></div></div><a class="bn" href="#">BOOK NOW</a></div></header>
-<main class="ar od">
+<main class="ar od od-t-participants">
 <nav class="ar-cr od-cr" aria-label="Breadcrumb"><a href="index.html">Home</a><i>/</i><a href="offers.html">Offers</a><i>/</i><span aria-current="page">60 Seconds to Tokyo</span></nav>
+<nav class="od-sn" aria-label="On this page"><a href="#od-participants">Participants</a><a href="#od-summary" class="on">Summary</a><a href="#od-overview">Overview</a><a href="#od-terms">T&amp;C</a></nav>
 <section class="od-main">
 <aside class="od-side"><div class="od-card"><div class="ar-ph" role="img" aria-label="60 Seconds to Tokyo" style="--img:url('assets/offer-tokyo.jpg')"><span class="od-bg"><i>DINING OFFERS</i></span></div>
 <div class="od-b"><p class="od-ty">DINING  <i>&middot;</i>  140 HOTELS</p><h1>60 Seconds to Tokyo</h1>
-<div class="od-tabs" role="tablist"><button type="button" role="tab" aria-selected="true">Summary</button><button type="button" role="tab" aria-selected="false">Overview</button></div><div class="od-pn" role="tabpanel"><div class="od-f"><span>TYPE</span><b>Dining</b></div><div class="od-f"><span>BOOKING PERIOD</span><b>1 Jul &ndash; 31 Dec 2026</b></div><div class="od-f"><span>AVAILABLE</span><b>July &ndash; December 2026</b></div></div><div class="od-pn" role="tabpanel" hidden><div class="od-ov" id="odov"><p>Experience the vibrant taste of Tokyo in just 60 seconds! From Japanese-inspired dishes, flavorful bites, refreshing drinks, and special promotional bundles, enjoy Japanese Street Food with the 60 Seconds to Tokyo experience at selected outlets and through online ordering channels.</p><p>Enjoy it through in-room dining and poolside snacks.</p></div><button type="button" class="od-rm" aria-expanded="false" aria-controls="odov">Read more</button></div><div class="od-sh"><button type="button" id="odshare"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="4" cy="8" r="1.8"/><circle cx="12" cy="3.5" r="1.8"/><circle cx="12" cy="12.5" r="1.8"/><path d="M5.7 7.1l4.6-2.7M5.7 8.9l4.6 2.7"/></svg>Share</button><div class="od-so"><a href="#" aria-label="Share on facebook"><img src="assets/social-facebook.svg" alt="" width="23" height="23"></a><a href="#" aria-label="Share on instagram"><img src="assets/social-instagram.svg" alt="" width="23" height="23"></a><a href="#" aria-label="Share on tiktok"><img src="assets/social-tiktok.svg" alt="" width="23" height="23"></a><a href="#" aria-label="Share on x"><img src="assets/social-x.svg" alt="" width="23" height="23"></a></div></div></div></div></aside>
-<div class="od-list"><div class="od-hd"><div><h2>Participating Hotels</h2><p id="odcnt" aria-live="polite" data-t="140">Showing 24 of 140 hotels</p></div><button type="button" class="od-dt"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span>12 &ndash; 13 Nov 2026 &nbsp;&middot;&nbsp; 1 room, 2 adults</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button></div>
+<div class="od-tabs" role="tablist"><button type="button" role="tab" aria-selected="true">Summary</button><button type="button" role="tab" aria-selected="false">Overview</button><button type="button" role="tab" aria-selected="false">Terms</button></div><div class="od-pn" role="tabpanel" id="od-summary" data-t="Summary"><div class="od-f"><span>TYPE</span><b>Dining</b></div><div class="od-f"><span>BOOKING PERIOD</span><b>1 Jul &ndash; 31 Dec 2026</b></div><div class="od-f"><span>AVAILABLE</span><b>July &ndash; December 2026</b></div></div><div class="od-pn" role="tabpanel" id="od-overview" data-t="Overview" hidden><div class="od-ov" id="odov"><p>Experience the vibrant taste of Tokyo in just 60 seconds! From Japanese-inspired dishes, flavorful bites, refreshing drinks, and special promotional bundles, enjoy Japanese Street Food with the 60 Seconds to Tokyo experience at selected outlets and through online ordering channels.</p><p>Enjoy it through in-room dining and poolside snacks.</p></div><button type="button" class="od-rm" aria-expanded="false" aria-controls="odov">Read more</button></div><div class="od-pn" role="tabpanel" id="od-terms" data-t="Terms &amp; Conditions" hidden><div class="od-ov" id="odov2"><ol class="od-tl"><li>Offer is valid for the stay period stated and subject to room availability.</li><li>Rates are per room per night and may be subject to prevailing taxes and service charge.</li><li>Bookings made through the official Aston website or participating hotels only.</li><li>Offer cannot be combined with other promotions, discounts or vouchers.</li><li>Cancellation, amendment and no-show policies follow the booking rate conditions.</li><li>Aston reserves the right to amend or withdraw this offer without prior notice.</li></ol></div><button type="button" class="od-rm" aria-expanded="false" aria-controls="odov2">Read more</button></div><div class="od-sh"><button type="button" id="odshare"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="4" cy="8" r="1.8"/><circle cx="12" cy="3.5" r="1.8"/><circle cx="12" cy="12.5" r="1.8"/><path d="M5.7 7.1l4.6-2.7M5.7 8.9l4.6 2.7"/></svg>Share</button><div class="od-so"><a href="#" aria-label="Share on facebook"><img src="assets/social-facebook.svg" alt="" width="23" height="23"></a><a href="#" aria-label="Share on instagram"><img src="assets/social-instagram.svg" alt="" width="23" height="23"></a><a href="#" aria-label="Share on tiktok"><img src="assets/social-tiktok.svg" alt="" width="23" height="23"></a><a href="#" aria-label="Share on x"><img src="assets/social-x.svg" alt="" width="23" height="23"></a></div></div></div></div></aside>
+<div class="od-list" id="od-participants"><div class="od-hd"><div><h2>Participating Hotels</h2><p id="odcnt" aria-live="polite" data-t="140">Showing 24 of 140 hotels</p></div><button type="button" class="od-dt"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span>12 &ndash; 13 Nov 2026 &nbsp;&middot;&nbsp; 1 room, 2 adults</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button></div>
 <div class="od-fb"><label class="od-sr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="odq" placeholder="Search hotel or city" autocomplete="off" aria-label="Search participating hotels"><button type="button" class="od-sx" aria-label="Clear search" hidden>&times;</button></label></div>
 <div class="od-g"><article class="od-t" data-i="0" data-g="x" data-n="Aston Priority Simatupang &amp; Conference Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Priority Simatupang &amp; Conference Center" style="--img:url(assets/hotel-priority.jpg)"></div><div class="od-tb"><div class="od-tn"><span>SOUTH JAKARTA</span><p>Aston Priority Simatupang &amp; Conference Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="1" data-g="x" data-n="Aston Kuta Hotel &amp; Residence" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Kuta Hotel &amp; Residence" style="--img:url(assets/hotel-kuta.jpg)"></div><div class="od-tb"><div class="od-tn"><span>KUTA, BALI</span><p>Aston Kuta Hotel &amp; Residence</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="2" data-g="x" data-n="Aston Pontianak Hotel &amp; Convention Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Pontianak Hotel &amp; Convention Center" style="--img:url(assets/hotel-pontianak.jpg)"></div><div class="od-tb"><div class="od-tn"><span>PONTIANAK</span><p>Aston Pontianak Hotel &amp; Convention Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="3" data-g="x" data-n="Aston Manado Hotel" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Manado Hotel" style="--img:url(assets/hotel-manado.jpg)"></div><div class="od-tb"><div class="od-tn"><span>MANADO</span><p>Aston Manado Hotel</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="4" data-g="x" data-n="Aston Makassar Hotel &amp; Convention Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Makassar Hotel &amp; Convention Center" style="--img:url(assets/hotel-makassar.jpg)"></div><div class="od-tb"><div class="od-tn"><span>MAKASSAR</span><p>Aston Makassar Hotel &amp; Convention Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="5" data-g="x" data-n="favehotel Gatot Subroto - Jakarta" data-p="0"><div class="ar-ph" role="img" aria-label="favehotel Gatot Subroto - Jakarta"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>FAVEHOTEL</span><p>favehotel Gatot Subroto - Jakarta</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="6" data-g="x" data-n="favehotel PGC Cililitan" data-p="0"><div class="ar-ph" role="img" aria-label="favehotel PGC Cililitan"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>FAVEHOTEL</span><p>favehotel PGC Cililitan</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="7" data-g="x" data-n="favehotel Pluit Junction" data-p="0"><div class="ar-ph" role="img" aria-label="favehotel Pluit Junction"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>FAVEHOTEL</span><p>favehotel Pluit Junction</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="8" data-g="x" data-n="Aston Tropicana" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Tropicana"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Tropicana</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="9" data-g="x" data-n="Aston Bogor Hotel &amp; Resort" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Bogor Hotel &amp; Resort"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Bogor Hotel &amp; Resort</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="10" data-g="x" data-n="Aston Sentul Lake Resort &amp; Conference Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Sentul Lake Resort &amp; Conference Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Sentul Lake Resort &amp; Conference Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="11" data-g="x" data-n="Aston Bojonegoro City Hotel" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Bojonegoro City Hotel"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Bojonegoro City Hotel</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="12" data-g="x" data-n="Aston Cirebon Hotel &amp; Convention Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Cirebon Hotel &amp; Convention Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Cirebon Hotel &amp; Convention Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="13" data-g="x" data-n="Aston Jember Hotel &amp; Conference Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Jember Hotel &amp; Conference Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Jember Hotel &amp; Conference Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="14" data-g="x" data-n="Aston Madiun Hotel &amp; Conference Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Madiun Hotel &amp; Conference Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Madiun Hotel &amp; Conference Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="15" data-g="x" data-n="Aston Purwokerto Hotel &amp; Convention Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Purwokerto Hotel &amp; Convention Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Purwokerto Hotel &amp; Convention Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="16" data-g="x" data-n="Aston Solo Hotel" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Solo Hotel"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Solo Hotel</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="17" data-g="x" data-n="Aston Ketapang City Hotel" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Ketapang City Hotel"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Ketapang City Hotel</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="18" data-g="x" data-n="Aston Samarinda Hotel &amp; Convention Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Samarinda Hotel &amp; Convention Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Samarinda Hotel &amp; Convention Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="19" data-g="x" data-n="Aston Tanjung City Hotel" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Tanjung City Hotel"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Tanjung City Hotel</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="20" data-g="x" data-n="Aston Kupang Hotel &amp; Convention Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Kupang Hotel &amp; Convention Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Kupang Hotel &amp; Convention Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="21" data-g="x" data-n="Aston Niu Manokwari" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Niu Manokwari"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Niu Manokwari</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="22" data-g="x" data-n="Aston Palembang Hotel &amp; Conference Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Palembang Hotel &amp; Conference Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Palembang Hotel &amp; Conference Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article><article class="od-t" data-i="23" data-g="x" data-n="Aston Tanjung Pinang Hotel &amp; Conference Center" data-p="0"><div class="ar-ph" role="img" aria-label="Aston Tanjung Pinang Hotel &amp; Conference Center"><b>HOTEL PHOTO</b></div><div class="od-tb"><div class="od-tn"><span>ASTON</span><p>Aston Tanjung Pinang Hotel &amp; Conference Center</p></div></div><div class="hact"><a class="hbtn hdt" href="#">Details</a><a class="hbtn hbk" href="#">BOOK NOW</a></div></article></div><p class="od-em" hidden>No hotels match your search.</p>
 <nav class="ar-pg" aria-label="Pagination"><button type="button" data-s="prev" aria-label="Previous page"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg></button><button type="button" data-p="1" aria-label="Page 1">1</button><button type="button" data-p="2" aria-label="Page 2">2</button><button type="button" data-p="3" aria-label="Page 3">3</button><button type="button" data-p="4" aria-label="Page 4">4</button><span class="dots" aria-hidden="true">&hellip;</span><button type="button" data-p="6" aria-label="Page 6">6</button><button type="button" data-s="next" aria-label="Next page"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4.5 2.5L8 6 4.5 9.5"/></svg></button></nav></div></section>
@@ -1151,6 +1193,11 @@ function pages(){return Math.max(1,Math.ceil(g.children.length/per()))}
 function upd(){var P=pages(),i=Math.min(P,Math.round(g.scrollLeft/(st()*per()))+1);if(g.scrollLeft+g.clientWidth>=g.scrollWidth-4)i=P;pn.textContent=i+' / '+P;pp.disabled=i===1;px.disabled=i===P}
 function go(d){g.scrollTo({left:g.scrollLeft+d*st()*per(),behavior:'smooth'})}
 pp.addEventListener('click',function(){go(-1)});px.addEventListener('click',function(){go(1)});g.addEventListener('scroll',function(){requestAnimationFrame(upd)});window.addEventListener('resize',upd);upd()})();
+
+;(function(){var nav=document.querySelector('.od-sn'),m=document.querySelector('main.od');if(!nav||!m)return;var L=[].slice.call(nav.querySelectorAll('a')),K=['participants','summary','overview','terms'];
+function set(k){K.forEach(function(x){m.classList.toggle('od-t-'+x,x===k)});L.forEach(function(a,i){var on=K[i]===k;a.classList.toggle('on',on);a.setAttribute('aria-current',on?'true':'false')})}
+L.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();set(K[i]);if(nav.scrollWidth>nav.clientWidth)nav.scrollLeft=a.offsetLeft-16;
+var top=nav.getBoundingClientRect().top+window.scrollY-64;if(window.scrollY>top)window.scrollTo({top:top,behavior:'auto'})})});set('participants')})();
 </script>
 <script>(function(){
 if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -1281,4 +1328,255 @@ var b=document.createElement('button');b.type='button';b.className='mnav-btn';b.
 var r=n.querySelector('.navr');(r||n).appendChild(b);
 b.addEventListener('click',function(){var o=document.body.classList.toggle('mopen');b.setAttribute('aria-expanded',o)});
 m.addEventListener('click',function(e){if(e.target.closest('a'))document.body.classList.remove('mopen')});
-})();</script><script id="ptj">(function(){var v=document.querySelector(".pattern-top video");if(!v)return;v.muted=true;if(window.matchMedia("(prefers-reduced-motion:reduce)").matches){v.removeAttribute("autoplay");v.pause();return}var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script></body></html>
+})();</script><script id="ptj">(function(){var v=document.querySelector(".pattern-top video");if(!v)return;v.muted=true;if(window.matchMedia("(prefers-reduced-motion:reduce)").matches){v.removeAttribute("autoplay");v.pause();return}var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script><style>/*dpop*/
+.dp{position:absolute;z-index:80;width:400px;box-sizing:border-box;background:#0c1524;border:1px solid rgba(246,230,202,.28);box-shadow:0 24px 60px rgba(0,0,0,.5);color:#fff;font-family:Montserrat,sans-serif;opacity:0;translate:0 8px;pointer-events:none;transition:opacity .25s,translate .3s cubic-bezier(.25,.8,.25,1)}
+.dp.on{opacity:1;translate:0 0;pointer-events:auto}
+.dp[hidden]{display:none}
+.dp-bd{display:none}
+.dp-in{padding:20px 20px 24px;display:flex;flex-direction:column;gap:16px}
+.dp-handle{display:none}
+.dp-tt{font:400 20px/28px Montserrat,sans-serif;color:#fff;margin:0}
+.dp-ac{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:8px;cursor:pointer;color:#fff;min-height:32px}
+.dp-ac:focus-visible{outline:2px solid var(--c,#f6e6ca);outline-offset:2px}
+.dp-ic{width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex:none}
+.dp-av{flex:1;min-width:0;font:400 16px/24px Montserrat,sans-serif}
+.dp-cv{flex:none;transition:rotate .35s cubic-bezier(.25,.8,.25,1)}.dp-sc.open .dp-cv{rotate:180deg}
+.dp-bx{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.25,.8,.25,1)}.dp-sc.open .dp-bx{grid-template-rows:1fr;margin-top:14px}
+.dp-bx>div{overflow:hidden;min-height:0}
+.dp-cal{border:.9px solid var(--c,#f6e6ca)}
+.dp-ch{display:flex;align-items:center;justify-content:space-between;padding:14px;border-bottom:.9px solid var(--c,#f6e6ca);font:400 12.5px/18px Montserrat,sans-serif;white-space:nowrap}
+.dp-ch small{font-size:10.7px}
+.dp-cb{padding:14px;display:flex;flex-direction:column;gap:11px}
+.dp-hd{display:flex;align-items:center;justify-content:space-between}
+.dp-hd b{flex:1;text-align:center;font:400 14.3px/21px Montserrat,sans-serif}
+.dp-nv{all:unset;box-sizing:border-box;width:29px;height:29px;border-radius:7px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;transition:background .3s,opacity .3s}
+.dp-nv svg{width:21px;height:21px}
+.dp-nv:hover:not(:disabled){background:rgba(246,230,202,.14)}.dp-nv:disabled{opacity:.3;cursor:default}.dp-nv:focus-visible{outline:2px solid var(--c,#f6e6ca);outline-offset:2px}
+.dp-w,.dp-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3.6px}
+.dp-w span{text-align:center;font:700 10.7px/18px Montserrat,sans-serif;color:#7d8696}
+.dp-d{all:unset;box-sizing:border-box;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:14.3px;cursor:pointer;position:relative;transition:background .2s,color .2s;color:#fff}
+.dp-d .dn{display:block;line-height:21px}
+.dp-d i{display:block;width:78%;height:7px;border-radius:4px;background:#b0bacc;margin-top:3px;transition:background .2s}
+.dp-d small{display:block;font-size:8.5px;line-height:12px;letter-spacing:.3px;color:#8c93a1}
+.dp-d.t{background:rgba(255,255,255,.07)}.dp-d.t .dn{font-weight:700;font-size:11px;line-height:14px}
+.dp-d.su .dn{color:#e5334b}
+.dp-d:hover:not(:disabled):not(.s){background:rgba(246,230,202,.14)}
+.dp-d:disabled{cursor:default}.dp-d:disabled .dn{color:#6b7385}
+.dp-d.r{background:rgba(246,230,202,.16)}
+.dp-d.s{background:var(--c,#f6e6ca);color:#0c1524}.dp-d.s .dn{color:#0c1524;font-weight:700}.dp-d.s i{background:#0c1524;opacity:.35}
+.dp-d:focus-visible{outline:2px solid var(--c,#f6e6ca);outline-offset:-2px}
+.dp-lg{display:flex;align-items:center;gap:8px;margin:6px 0 0;font:400 10.7px/16px Montserrat,sans-serif}.dp-lg span{display:flex;align-items:center;gap:8px}.dp-lg i{width:7px;height:7px;border-radius:50%;background:#1fa045}.dp-lg small{display:none}
+.dp-mo{display:flex;flex-direction:column;gap:11px;min-width:0}.dp-mo+.dp-mo{display:none}
+.dp-gb{border:.5px solid var(--c,#f6e6ca);padding:4px 20px}
+.dp-gh{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:.5px solid rgba(255,255,255,.22)}
+.dp-gh b{font:700 14px/24px Montserrat,sans-serif;letter-spacing:.14px}
+.dp-gr i{display:none}
+.dp-rl{display:flex;flex-direction:column}
+.dp-rm{display:block;padding:16px 0;border:0;border-bottom:.5px solid rgba(255,255,255,.22)}.dp-rm:last-child{border-bottom:0}
+.dp-rm b{display:block;font:600 11px/16px Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#b0bacc;margin:0 0 6px;width:auto}
+.dp-rc{display:flex;flex-direction:column;gap:2px;align-items:stretch}
+.dp-rw{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 0}.dp-rw>span{width:auto;font:400 14px/24px Montserrat,sans-serif;letter-spacing:.14px}
+.dp-st{display:flex;align-items:center;gap:12px}
+.dp-st output{min-width:24px;text-align:center;font:700 16px/24px Montserrat,sans-serif;color:var(--c,#f6e6ca)}
+.dp-sb{display:flex;gap:8px}
+.dp-sb button{all:unset;box-sizing:border-box;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.55);font-size:16px;line-height:1;cursor:pointer;transition:border-color .3s,color .3s,opacity .3s}
+.dp-sb button:hover:not(:disabled){border-color:var(--c,#f6e6ca);color:var(--c,#f6e6ca)}.dp-sb button:disabled{opacity:.3;cursor:default}.dp-sb button:focus-visible{outline:2px solid var(--c,#f6e6ca);outline-offset:2px}
+.dp-ap{all:unset;box-sizing:border-box;width:100%;height:48px;display:flex;align-items:center;justify-content:center;background:var(--c,#f6e6ca);color:#222;font:400 16px/24px Montserrat,sans-serif;cursor:pointer;transition:background .3s}
+.dp-ap:hover{background:#fff}.dp-ap:disabled{opacity:.4;cursor:default}.dp-ap:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.od-dt[aria-expanded=true],.ho-dt[aria-expanded=true]{border-color:var(--c,#f6e6ca)}
+.dp-bar{display:none}
+@media(min-width:701px){
+.dp{width:880px;background:#091a36;border-color:var(--c,#f6e6ca)}
+.dp-in{padding:0;gap:0}
+.dp-tt,.dp-ac,.dp-apm{display:none}
+.dp-bar{display:flex;align-items:stretch;min-height:64px}
+.dp-f{all:unset;box-sizing:border-box;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:12px 24px;cursor:pointer;position:relative;transition:background .3s}
+.dp-f+.dp-f::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:rgba(246,230,202,.4)}
+.dp-fl{font:700 11px/16px Montserrat,sans-serif;letter-spacing:.1em;color:var(--c,#f6e6ca)}
+.dp-fq{font:400 14px/20px Montserrat,sans-serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dp-f:hover,.dp-f.on{background:rgba(246,230,202,.06)}
+.dp-f:focus-visible{outline:2px solid var(--c,#f6e6ca);outline-offset:-2px}
+.dp-bar .dp-ap{flex:none;width:180px;height:auto;font-size:13px;letter-spacing:.1em}
+.dp-cb{max-width:780px;margin:0 auto}
+.dp-sd .dp-bx>div>*{max-width:420px}
+.dp-dd{border:.5px solid rgba(246,230,202,.4)}
+.dp-ds{display:flex;align-items:center;gap:12px;padding:0 16px;height:48px;border-bottom:.5px solid rgba(255,255,255,.15);color:#8a99b4}.dp-ds:focus-within{color:var(--c,#f6e6ca);box-shadow:inset 0 -1px 0 var(--c,#f6e6ca)}
+.dp-ds input{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font:500 14px Montserrat,sans-serif}.dp-ds input::placeholder{color:#8a99b4;font-weight:400}
+.dp-dl{max-height:300px;overflow:auto;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:#2a3b5c transparent}
+.dp-dh{margin:0;padding:14px 16px 6px;font:600 11px/16px Montserrat,sans-serif;letter-spacing:.14em;color:var(--c,#f6e6ca)}.dp-dh[hidden]{display:none}
+.dp-dr{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;color:#fff;transition:background .25s}.dp-dr[hidden]{display:none}
+.dp-dr svg{flex:none;color:#8a99b4;transition:color .25s}.dp-dr .t{font:500 14px/20px Montserrat,sans-serif;transition:color .25s}.dp-dr .s{font:400 12px/16px Montserrat,sans-serif;color:#8a99b4}
+.dp-dr .ck{margin-left:auto;color:var(--c,#f6e6ca);opacity:0;display:flex}.dp-dr.sel .ck{opacity:1}.dp-dr.sel .t,.dp-dr.sel svg{color:var(--c,#f6e6ca)}
+.dp-dr:hover,.dp-dr:focus-visible{background:rgba(255,255,255,.06)}.dp-dr:hover .t{color:var(--c,#f6e6ca)}.dp-dr:focus-visible{outline:2px solid var(--c,#f6e6ca);outline-offset:-2px}
+.dp-de{display:none;margin:0;padding:24px 16px;font:400 13px/18px Montserrat,sans-serif;color:#8a99b4;text-align:center}
+.dp-sc{padding:0 24px}.dp-sc.open{border-top:.5px solid rgba(246,230,202,.3);padding-bottom:24px}
+.dp-sc.open .dp-bx{margin-top:20px}
+.dp-cal{border:0}.dp-ch{display:none}
+.dp-cb{padding:0;flex-direction:row;flex-wrap:wrap;gap:0 48px}
+.dp-mo,.dp-mo+.dp-mo{display:flex;flex:1 1 0}
+.dp-mo:first-child .dp-n,.dp-mo:last-child .dp-p{visibility:hidden}
+.dp-lg{flex:0 0 100%;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:.5px solid rgba(255,255,255,.15);font-size:12px}.dp-lg small{display:block;font-size:12px}
+.dp-sg .dp-bx>div>*{max-width:400px;margin-left:auto}.dp-sg .dp-gb{border:0;padding:0}
+
+.dp-in{position:relative}
+.dp-sc,.dp-sc.open{padding:0;border:0}
+.dp-sc .dp-bx{display:none;position:absolute;top:calc(100% + 8px);z-index:5;box-sizing:border-box;background:#091a36;border:1px solid rgba(246,230,202,.32);box-shadow:0 30px 70px rgba(0,0,0,.55);margin:0;transition:none}
+.dp-sc.open .dp-bx{display:block;margin:0;animation:dpIn .35s cubic-bezier(.25,.8,.25,1) both}
+.dp-bx>div{overflow:visible}
+@keyframes dpIn{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+.dp-sc:not(.dp-sd):not(.dp-sg) .dp-bx{left:0;right:0;padding:24px 32px}
+.dp-cb{max-width:none;margin:0}
+.dp-sd .dp-bx{left:0;width:420px}.dp-sd .dp-bx>div>*{max-width:none}.dp-dd{border:0}
+.dp-sg .dp-bx{right:180px;width:420px;padding:8px 24px}.dp-sg .dp-bx>div>*{max-width:none;margin:0}
+@media(prefers-reduced-motion:reduce){.dp-sc.open .dp-bx{animation:none}}
+}
+@media(max-width:700px){
+.dp-sd{display:none}
+.dp{position:fixed;left:0;right:0;bottom:0;top:auto;width:auto;max-height:92vh;max-height:92dvh;overflow-y:auto;translate:0 40px;border-width:0;border-radius:24px 24px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.3)}
+.dp-bd{display:block;position:fixed;inset:0;z-index:79;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .25s}
+.dp-bd.on{opacity:1;pointer-events:auto}
+.dp-in{padding:12px 20px max(32px,env(safe-area-inset-bottom));gap:24px}
+.dp-handle{display:block;width:40px;height:4px;border-radius:2px;background:#a3a3a3;margin:0 auto -8px}
+}
+@media(prefers-reduced-motion:reduce){.dp,.dp-bd,.dp-bx,.dp-cv{transition:none}}
+
+.chg{margin-left:14px;font:500 13px/20px 'Montserrat',sans-serif;color:var(--c,#f6e6ca);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;cursor:pointer;background:none;border:0;padding:0;transition:opacity .3s}.chg:hover{opacity:.75}.chg:focus-visible{outline:2px solid var(--c,#f6e6ca);outline-offset:3px}
+</style><script>/*dpop*/
+(function(){
+var btns=[].slice.call(document.querySelectorAll('.od-dt,.ho-dt,.chg'));if(!btns.length)return;
+var TODAY=new Date(2026,10,5),MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],MONL=['January','February','March','April','May','June','July','August','September','October','November','December'],DW=['SU','MO','TU','WE','TH','FR','SA'],DWS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var S={a:new Date(2026,10,12),b:new Date(2026,10,13),rm:[{a:2,k:0}],rooms:1,adults:2,kids:0,dest:'Bali, Indonesia'},D=null,view=new Date(2026,10,1),open=null,sec='date';
+var key=function(d){return d.getFullYear()*10000+d.getMonth()*100+d.getDate()},dayOf=function(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate())};
+function tot(rm){var a=0,k=0;rm.forEach(function(r){a+=r.a;k+=r.k});return{rooms:rm.length,adults:a,kids:k}}
+function cl(rm){return rm.map(function(r){return{a:r.a,k:r.k}})}
+function rng(a,b){var A=a.getDate(),B=b.getDate();if(a.getFullYear()!==b.getFullYear())return A+' '+MON[a.getMonth()]+' '+a.getFullYear()+' – '+B+' '+MON[b.getMonth()]+' '+b.getFullYear();if(a.getMonth()!==b.getMonth())return A+' '+MON[a.getMonth()]+' – '+B+' '+MON[b.getMonth()]+' '+b.getFullYear();return A+' – '+B+' '+MON[b.getMonth()]+' '+b.getFullYear()}
+function gs(s){return s.rooms+(s.rooms>1?' rooms':' room')+', '+s.adults+(s.adults>1?' adults':' adult')+(s.kids?', '+s.kids+(s.kids>1?' children':' child'):'')}
+function fmtL(d){return DWS[d.getDay()]+', '+MON[d.getMonth()]+' '+d.getDate()}
+function rateTxt(a,b){return fmtL(a)+' - '+MON[b.getMonth()]+' '+b.getDate()}
+function fv(d){return DWS[d.getDay()]+', '+d.getDate()+' '+MON[d.getMonth()]}
+function full(d){return d.getDate()+' '+MON[d.getMonth()]+' '+d.getFullYear()}
+function syncPage(){var bar=document.querySelector('.bar');if(bar){[].forEach.call(bar.querySelectorAll('.fld'),function(x){var l=x.querySelector('.fl'),v=x.querySelector('.fv');if(!l||!v)return;var t=l.textContent.trim();if(t==='DESTINATION')v.textContent=S.dest;else if(t==='CHECK-IN')v.textContent=fv(S.a);else if(t==='CHECK-OUT')v.textContent=fv(S.b);else if(t==='GUESTS')v.textContent=S.adults+(S.adults>1?' adults':' adult')+', '+S.rooms+(S.rooms>1?' rooms':' room')})}
+var nt=document.querySelector('.np-t'),ng=document.querySelector('.np-g');if(nt)nt.textContent=S.a.getDate()+' '+MON[S.a.getMonth()]+' - '+S.b.getDate()+' '+MON[S.b.getMonth()];if(ng)ng.textContent=S.adults+(S.adults>1?' adults':' adult');
+[].forEach.call(document.querySelectorAll('.chg'),function(c){var p=c.parentNode,sp=p.querySelector('span');if(sp)sp.textContent=rateTxt(S.a,S.b);else if(p.firstChild&&p.firstChild.nodeType===3)p.firstChild.nodeValue='Lowest Rates for '+rateTxt(S.a,S.b)})}
+function nights(a,b){return Math.round((b-a)/864e5)}
+var bd=document.createElement('div');bd.className='dp-bd';var pop=document.createElement('div');pop.className='dp';pop.hidden=true;pop.setAttribute('role','dialog');pop.setAttribute('aria-label','Room reservation');
+document.body.appendChild(bd);document.body.appendChild(pop);
+var DEST=[['POPULAR DESTINATIONS',[['Bali','Indonesia'],['Jakarta','Indonesia'],['Yogyakarta','Indonesia'],['Bandung','Indonesia'],['Surabaya','Indonesia']]],['OVERSEAS',[['Malaysia','Overseas'],['Singapore','Overseas'],['Vietnam','Overseas']]]];
+var I={pin:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',srch:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>',ck:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>',cal:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
+users:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><path d="M16 5.2a3.5 3.5 0 0 1 0 6.6M18 13.8c2.2.8 3.5 3 3.5 6.2"/></svg>',
+dn:'<svg class="dp-cv" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+l:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg>',
+r:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg>'};
+function st(r,f,v,min,max,lab){return '<div class="dp-st"><output aria-live="polite">'+v+'</output><span class="dp-sb"><button type="button" data-rm="'+r+'" data-f="'+f+'" data-d="-1" aria-label="Fewer '+lab+'"'+(v<=min?' disabled':'')+'>−</button><button type="button" data-rm="'+r+'" data-f="'+f+'" data-d="1" aria-label="More '+lab+'"'+(v>=max?' disabled':'')+'>+</button></span></div>'}
+function guests(){var t=tot(D.rm),h='<div class="dp-gb"><div class="dp-gh"><b>Room(s)</b><div class="dp-gr"><i></i>'+st(-1,'rooms',t.rooms,1,5,'rooms')+'</div></div><div class="dp-rl">';
+  D.rm.forEach(function(r,i){h+='<div class="dp-rm"><b>Room(s) '+(i+1)+'</b><div class="dp-rc"><div class="dp-rw"><span>Adult(s)</span>'+st(i,'a',r.a,1,4,'adults')+'</div><div class="dp-rw"><span>Child(ren)</span>'+st(i,'k',r.k,0,3,'children')+'</div></div></div>'});
+  return h+'</div></div>'}
+function render(){
+  var minM=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);
+  function grid(y,m){var off=new Date(y,m,1).getDay(),n=new Date(y,m+1,0).getDate(),h='';
+  for(var i=0;i<off;i++)h+='<span></span>';
+  for(var d=1;d<=n;d++){var dt=new Date(y,m,d),k=key(dt),dis=dt<dayOf(TODAY),c='dp-d',isT=k===key(TODAY);
+    if(D.a&&k===key(D.a))c+=' s';if(D.b&&k===key(D.b))c+=' s';if(D.a&&D.b&&dt>D.a&&dt<D.b)c+=' r';if(dt.getDay()===0)c+=' su';if(isT)c+=' t';
+    h+='<button type="button" class="'+c+'" data-k="'+k+'" data-y="'+y+'" data-m="'+m+'" data-n="'+d+'"'+(dis?' disabled':'')+' aria-label="'+d+' '+MONL[m]+' '+y+'"><span class="dn">'+d+'</span>'+(isT?'<small>TODAY</small>':(dis?'':'<i></i>'))+'</button>'}
+  return h}
+  var y=view.getFullYear(),m=view.getMonth(),y2=new Date(y,m+1,1).getFullYear(),m2=(m+1)%12;
+  function mon(yy,mm){return '<div class="dp-mo"><div class="dp-hd"><button type="button" class="dp-nv dp-p" data-nav="-1" aria-label="Previous month"'+(view<=minM?' disabled':'')+'>'+I.l+'</button><b>'+MONL[mm]+' '+yy+'</b><button type="button" class="dp-nv dp-n" data-nav="1" aria-label="Next month">'+I.r+'</button></div><div class="dp-w">'+DW.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div><div class="dp-g">'+grid(yy,mm)+'</div></div>'}
+  function destP(){var h='<div class="dp-dd"><label class="dp-ds">'+I.srch+'<input type="text" placeholder="Search destination" aria-label="Search destination" autocomplete="off"></label><div class="dp-dl">';DEST.forEach(function(g){h+='<p class="dp-dh">'+g[0]+'</p>';g[1].forEach(function(x){var v=x[0]+', '+x[1],on=v===D.dest;h+='<button type="button" class="dp-dr'+(on?' sel':'')+'" data-dest="'+v+'" data-q="'+(x[0]+' '+x[1]).toLowerCase()+'">'+I.pin+'<span class="t">'+x[0]+'</span><span class="s">'+x[1]+'</span><span class="ck">'+I.ck+'</span></button>'})});return h+'<p class="dp-de">No destinations match your search.</p></div></div>'}
+  var ok=D.a&&D.b,t=tot(D.rm),nn=ok?nights(D.a,D.b):0;
+  var dateTxt=ok?full(D.a)+' - '+full(D.b):(D.a?full(D.a)+' - Select check-out':'Select dates');
+  var gTxt=t.rooms+(t.rooms>1?' Rooms':' Room')+' - '+(t.adults+t.kids)+((t.adults+t.kids)>1?' Guests':' Guest');
+  var gb=t.adults+(t.adults>1?' adults':' adult')+(t.kids?', '+t.kids+(t.kids>1?' children':' child'):'')+', '+t.rooms+(t.rooms>1?' rooms':' room');
+  var fb=function(l,v,sc,keep){return '<button type="button" class="dp-f'+(sec===sc?' on':'')+'" data-sec="'+sc+'"'+(keep?' data-keep="1"':'')+' aria-expanded="'+(sec===sc)+'"><span class="dp-fl">'+l+'</span><span class="dp-fq">'+v+'</span></button>'};
+  var bar='<div class="dp-bar">'+fb('DESTINATION',D.dest,'dest',0)+fb('CHECK-IN',D.a?fv(D.a):'Select','date',1)+fb('CHECK-OUT',D.b?fv(D.b):'Select','date',1)+fb('GUESTS',gb,'guests',0)+'<button type="button" class="dp-ap"'+(ok?'':' disabled')+'>APPLY</button></div>';
+  pop.innerHTML='<div class="dp-in">'+bar+'<div class="dp-handle" aria-hidden="true"></div><h2 class="dp-tt">ROOM RESERVATION</h2>'
+  +'<div class="dp-sc dp-sd'+(sec==='dest'?' open':'')+'"><div class="dp-bx"><div>'+destP()+'</div></div></div>'
+  +'<div class="dp-sc'+(sec==='date'?' open':'')+'"><button type="button" class="dp-ac" data-sec="date" aria-expanded="'+(sec==='date')+'"><span class="dp-ic">'+I.cal+'</span><span class="dp-av">'+dateTxt+'</span>'+I.dn+'</button>'
+  +'<div class="dp-bx"><div><div class="dp-cal"><div class="dp-ch"><span>'+(ok?full(D.a)+' - '+full(D.b):'DD MM YYYY - DD MM YYYY')+'</span><small>'+(ok?nn+(nn>1?' Nights':' Night'):'')+'</small></div>'
+  +'<div class="dp-cb">'+mon(y,m)+mon(y2,m2)+'<p class="dp-lg"><span><i></i>Lowest Price in IDR</span><small>'+(ok?nn+(nn>1?' Nights':' Night'):'')+'</small></p></div></div></div></div></div>'
+  +'<div class="dp-sc dp-sg'+(sec==='guests'?' open':'')+'"><button type="button" class="dp-ac" data-sec="guests" aria-expanded="'+(sec==='guests')+'"><span class="dp-ic">'+I.users+'</span><span class="dp-av">'+gTxt+'</span>'+I.dn+'</button><div class="dp-bx"><div>'+guests()+'</div></div></div>'
+  +'<button type="button" class="dp-ap dp-apm"'+(ok?'':' disabled')+'>APPLY</button></div>'}
+function place(b){if(matchMedia('(max-width:700px)').matches){pop.style.left=pop.style.top='';return}var r=b.getBoundingClientRect(),isC=b.classList.contains('chg'),an=isC?(b.closest('p')||b.parentNode).getBoundingClientRect():r,w=pop.offsetWidth||400,cw=document.documentElement.clientWidth,L=Math.max(12,Math.min(isC?window.scrollX+an.left:window.scrollX+r.right-w,window.scrollX+cw-w-12));pop.style.left=L+'px';var h=pop.offsetHeight,gap=isC?12:8,top=window.scrollY+an.bottom+gap;if(an.bottom+gap+h>window.innerHeight&&an.top-gap-h>0)top=window.scrollY+an.top-gap-h;pop.style.top=top+'px';var ov=top+h-window.scrollY-window.innerHeight;if(ov>-16)window.scrollBy({top:ov+24,behavior:'smooth'})}
+function show(b,sc){if(!window.__dpi&&b.classList.contains('fld')){S.a=new Date(2026,10,6);S.b=new Date(2026,10,8);window.__dpi=1}if(b.classList.contains('chg')&&!window.__dpi&&b.dataset.a){var q=b.dataset.a.split('-'),r=b.dataset.b.split('-');S.a=new Date(+q[0],+q[1]-1,+q[2]);S.b=new Date(+r[0],+r[1]-1,+r[2]);window.__dpi=1}D={a:S.a,b:S.b,rm:cl(S.rm),dest:S.dest};sec=sc||'date';view=new Date(S.a.getFullYear(),S.a.getMonth(),1);open=b;render();pop.hidden=false;place(b);void pop.offsetWidth;pop.classList.add('on');bd.classList.add('on');b.setAttribute('aria-expanded','true')}
+function hide(ret){if(!open)return;var b=open;open=null;pop.classList.remove('on');bd.classList.remove('on');b.setAttribute('aria-expanded','false');setTimeout(function(){if(!open)pop.hidden=true},260);if(ret)b.focus()}
+btns.forEach(function(b){b.setAttribute('aria-haspopup','dialog');b.setAttribute('aria-expanded','false');b.addEventListener('click',function(e){e.stopPropagation();if(open===b)hide(true);else{if(open)hide();show(b)}})});
+document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.bar .fld');if(!f||!matchMedia('(max-width:700px)').matches)return;var l=f.querySelector('.fl');if(!l)return;var t=l.textContent.trim(),sc=(t==='CHECK-IN'||t==='CHECK-OUT')?'date':(t==='GUESTS'?'guests':null);if(!sc)return;e.stopPropagation();e.preventDefault();if(open)hide();show(f,sc)},true);
+function keep(f){var s=pop.querySelector(f);if(s&&!s.disabled)s.focus({preventScroll:true})}
+pop.addEventListener('click',function(e){e.stopPropagation();var t=e.target.closest('button');if(!t||t.disabled)return;
+  if(t.dataset.sec){sec=(sec===t.dataset.sec&&!t.dataset.keep)?'':t.dataset.sec;render();keep((matchMedia('(min-width:701px)').matches?'.dp-f':'.dp-ac')+'[data-sec="'+t.dataset.sec+'"]');if(sec==='dest'){var inp=pop.querySelector('.dp-ds input');if(inp)inp.focus({preventScroll:true})}if(open)place(open);return}
+  if(t.dataset.dest){D.dest=t.dataset.dest;sec='date';render();keep('.dp-f[data-sec="date"]');if(open)place(open);return}
+  if(t.dataset.nav){view=new Date(view.getFullYear(),view.getMonth()+(+t.dataset.nav),1);render();return}
+  if(t.dataset.k){var d=new Date(+t.dataset.y,+t.dataset.m,+t.dataset.n);if(!D.a||D.b||d<=D.a){D.a=d;D.b=null}else D.b=d;render();keep('.dp-d[data-k="'+key(d)+'"]');if(D.a&&D.b&&matchMedia('(min-width:701px)').matches){var pb=D.b;setTimeout(function(){if(open&&D.b===pb&&sec==='date'){sec='guests';render();keep('.dp-f[data-sec="guests"]');place(open)}},300)}return}
+  if(t.dataset.f){var f=t.dataset.f,dd=+t.dataset.d,r=+t.dataset.rm;
+    if(f==='rooms'){var n=Math.max(1,Math.min(5,D.rm.length+dd));while(D.rm.length<n)D.rm.push({a:2,k:0});while(D.rm.length>n)D.rm.pop()}
+    else{var lim=f==='a'?[1,4]:[0,3];D.rm[r][f]=Math.max(lim[0],Math.min(lim[1],D.rm[r][f]+dd))}
+    render();keep('[data-rm="'+r+'"][data-f="'+f+'"][data-d="'+t.dataset.d+'"]');return}
+  if(t.classList.contains('dp-ap')){var tt=tot(D.rm);S={a:D.a,b:D.b,rm:cl(D.rm),rooms:tt.rooms,adults:tt.adults,kids:tt.kids,dest:D.dest};btns.forEach(function(x){var sp=x.querySelector('span');if(sp)sp.innerHTML=rng(S.a,S.b)+' &nbsp;&middot;&nbsp; '+gs(S)});syncPage();hide(true)}});
+pop.addEventListener('input',function(e){var i=e.target;if(!i.matches||!i.matches('.dp-ds input'))return;var q=i.value.trim().toLowerCase(),n=0;[].forEach.call(pop.querySelectorAll('.dp-dr'),function(r){var m=!q||r.dataset.q.indexOf(q)>-1;r.hidden=!m;if(m)n++});[].forEach.call(pop.querySelectorAll('.dp-dh'),function(h){var x=h.nextElementSibling,any=false;while(x&&x.classList.contains('dp-dr')){if(!x.hidden)any=true;x=x.nextElementSibling}h.hidden=!any});pop.querySelector('.dp-de').style.display=n?'none':'block'});
+pop.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.matches&&e.target.matches('.dp-ds input')){e.preventDefault();var r=pop.querySelector('.dp-dr:not([hidden])');if(r)r.click()}});
+document.addEventListener('click',function(e){if(open&&!pop.contains(e.target))hide()});
+bd.addEventListener('click',function(){hide()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open){e.preventDefault();hide(true)}});
+window.addEventListener('resize',function(){if(open)place(open)});
+})();
+</script><style>/*mm2*/
+.mm2{display:none}
+@media(max-width:760px){
+.mmenu.mm2{display:flex;position:fixed;top:0;bottom:0;left:0;width:calc(100% - 48px);max-width:400px;z-index:70;height:100vh;height:100dvh;box-sizing:border-box;flex-direction:column;gap:0;padding:20px 24px 28px;background:#0c1524;overflow-y:auto;box-shadow:4px 4px 15px rgba(0,0,0,.2);transform:translateX(-100%);visibility:hidden;transition:transform .45s var(--e),visibility 0s .45s}
+body.mopen .mmenu.mm2{transform:none;visibility:visible;transition:transform .45s var(--e)}
+.mm2-bd{position:fixed;inset:0;z-index:69;background:rgba(4,9,18,.6);opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s .4s}
+body.mopen .mm2-bd{opacity:1;visibility:visible;transition:opacity .4s}
+.mm2 a{text-transform:none;letter-spacing:0;font-weight:400;border:0}
+.mm2-h{flex:none;display:flex;align-items:center;justify-content:space-between;height:40px}
+.mm2-h img{width:96px;height:auto;display:block}
+.mm2-r{display:flex;align-items:center;gap:20px}
+.mm2-lg{display:flex;align-items:center;gap:3px;font:400 12px/20px Montserrat,sans-serif;color:rgba(159,159,159,.6)}
+.mm2-lg button{all:unset;cursor:pointer;color:rgba(159,159,159,.6);transition:color .3s}
+.mm2-lg button.on{color:#f6e6ca}.mm2-lg button:focus-visible{outline:2px solid #f6e6ca;outline-offset:2px}
+.mm2-x{all:unset;box-sizing:border-box;width:40px;height:40px;margin-right:-8px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer}
+.mm2-x:focus-visible{outline:2px solid #f6e6ca;outline-offset:-2px}
+.mm2-l{flex:none;display:flex;flex-direction:column;gap:4px;margin-top:32px}
+.mm2 .mm2-i{display:flex;align-items:center;gap:12px;padding:12px 0 14px;border-bottom:1px solid #334d7c;color:#fff;font:400 15px/22px Montserrat,sans-serif;letter-spacing:.6px;text-transform:uppercase;transition:color .3s,border-color .3s}
+.mm2 .mm2-i .n{font-size:11px;line-height:22px;letter-spacing:.4px;color:#8a99b4}
+.mm2 .mm2-i.on{color:#f6e6ca}
+.mm2 .mm2-i:active{border-color:#f6e6ca}
+.mm2 .mm2-m{flex:none;position:relative;display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding:10px 16px;border:1px solid #546a91;background:#0c1524;box-shadow:inset 0 4px 17.5px rgba(222,222,222,.1);color:#fff}
+.mm2-m .mm2-mi{display:flex;align-items:center;gap:14px;min-width:0}
+.mm2-m img{width:30px;height:auto;flex:none}
+.mm2-m b{display:block;font:400 11px/16px Montserrat,sans-serif;letter-spacing:.5px;text-transform:uppercase;color:#fff}
+.mm2-m span{display:block;margin-top:2px;font:400 13px/18px Montserrat,sans-serif;color:#546a91}
+.mm2-m svg{flex:none;color:#fff;width:20px;height:20px}
+.mm2-b{flex:none;margin-top:auto;padding-top:32px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.mm2 .mm2-bk{box-sizing:border-box;width:100%;height:44px;display:flex;align-items:center;justify-content:center;background:#f6e6ca;color:#222;font:500 13px/20px Montserrat,sans-serif;letter-spacing:1px;text-transform:uppercase}
+.mm2-s{display:flex;gap:16px}.mm2-s a{display:block;width:30px;height:30px}.mm2-s img{width:30px;height:30px;display:block}
+.mm2-i,.mm2-gt,.mm2-m,.mm2-b{opacity:0;translate:0 12px;transition:opacity .5s var(--e),translate .6s var(--e),color .3s,border-color .3s}
+body.mopen .mm2-i,body.mopen .mm2-gt,body.mopen .mm2-m,body.mopen .mm2-b{opacity:1;translate:0 0}
+body.mopen .mm2-i:nth-child(1){transition-delay:.08s,.08s,0s,0s}body.mopen .mm2-i:nth-child(2){transition-delay:.14s,.14s,0s,0s}body.mopen .mm2-i:nth-child(3){transition-delay:.2s,.2s,0s,0s}body.mopen .mm2-i:nth-child(4){transition-delay:.26s,.26s,0s,0s}body.mopen .mm2-i:nth-child(5){transition-delay:.32s,.32s,0s,0s}body.mopen .mm2-m{transition-delay:.4s,.4s,0s,0s}body.mopen .mm2-b{transition-delay:.46s,.46s,0s,0s}
+@media(prefers-reduced-motion:reduce){.mm2-i,.mm2-m,.mm2-b{opacity:1;translate:none;transition:none}}
+
+.mm2-g{display:flex;flex-direction:column}
+.mm2 button.mm2-gt{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 0 14px;border-bottom:1px solid #334d7c;color:#fff;font:400 15px/22px Montserrat,sans-serif;letter-spacing:.6px;text-transform:uppercase}
+.mm2 button.mm2-gt.on{color:#f6e6ca}.mm2 button.mm2-gt:focus-visible{outline:2px solid #f6e6ca;outline-offset:2px}
+.mm2-gt .n{font-size:11px;line-height:22px;letter-spacing:.4px;color:#8a99b4}
+.mm2-cv{margin-left:auto;transition:rotate .35s var(--e)}.mm2-g.open .mm2-cv{rotate:180deg}
+.mm2-gb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--e)}.mm2-g.open .mm2-gb{grid-template-rows:1fr}
+.mm2-gb>div{overflow:hidden;display:flex;flex-direction:column}
+.mm2 a.mm2-sb{display:block;padding:12px 0 12px 28px;font:400 14px/20px Montserrat,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#b0bacc;border-bottom:1px solid rgba(51,77,124,.5)}
+.mm2 a.mm2-sb.on{color:#f6e6ca}
+}
+</style><script>/*mm2*/
+(function(){var old=document.querySelector('.mmenu');var n=document.querySelector('.nav'),l=n&&n.querySelector('.links');if(!l)return;
+var btn=document.querySelector('.mnav-btn');if(old&&!old.classList.contains('mm2'))old.remove();else if(old)return;
+var cur=location.pathname.split('/').pop()||'index.html',items=[],seen={};
+l.querySelectorAll(':scope>a').forEach(function(a){items.push([a.textContent.trim(),a.getAttribute('href'),a.classList.contains('on')])});
+var nOn=/^(news|press|article)/.test(cur);
+var h='<div class="mm2-h"><a href="index.html" aria-label="Aston home"><img src="assets/logo.svg" alt="Aston" width="122" height="30"></a><div class="mm2-r"><div class="mm2-lg" role="group" aria-label="Language"><button type="button" class="on" data-l="EN">EN</button><span aria-hidden="true">/</span><button type="button" data-l="ID">ID</button></div><button type="button" class="mm2-x" aria-label="Close menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg></button></div></div><nav class="mm2-l" aria-label="Main">';
+items.forEach(function(it,i){h+='<a class="mm2-i'+(it[2]?' on':'')+'" href="'+it[1]+'"><span class="n">0'+(i+1)+'</span><span>'+it[0]+'</span></a>'});h+='<div class="mm2-g'+(nOn?' open':'')+'"><button type="button" class="mm2-i mm2-gt'+(nOn?' on':'')+'" aria-expanded="'+nOn+'"><span class="n">0'+(items.length+1)+'</span><span>News</span><svg class="mm2-cv" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button><div class="mm2-gb"><div><a class="mm2-sb'+(/^(news|press)/.test(cur)?' on':'')+'" href="news.html">News &amp; Press</a><a class="mm2-sb'+(/^article/.test(cur)?' on':'')+'" href="articles.html">Articles</a></div></div></div>';
+h+='</nav><a class="mm2-m" href="#"><span class="mm2-mi"><img src="assets/nav-icon.svg" alt=""><span><b>Archipelago Membership</b><span>Member rates and rewards</span></span></span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a><div class="mm2-b"><a class="mm2-bk" href="#">Book now</a><div class="mm2-s">'+['tiktok','instagram','facebook','youtube'].map(function(s){return '<a href="#" aria-label="'+s+'"><img src="assets/social-'+s+'.svg" alt=""></a>'}).join('')+'</div></div>';
+var m=document.createElement('div');m.className='mmenu mm2';m.setAttribute('role','dialog');m.setAttribute('aria-label','Menu');m.innerHTML=h;document.body.appendChild(m);var bd=document.createElement('div');bd.className='mm2-bd';document.body.appendChild(bd);bd.addEventListener('click',function(){close(true)});
+function close(f){document.body.classList.remove('mopen');if(btn){btn.setAttribute('aria-expanded','false');if(f)btn.focus()}}
+m.querySelector('.mm2-x').addEventListener('click',function(){close(true)});var gt=m.querySelector('.mm2-gt');gt.addEventListener('click',function(){var g=gt.parentNode,o=g.classList.toggle('open');gt.setAttribute('aria-expanded',o)});
+m.addEventListener('click',function(e){if(e.target.closest('a'))close(false);var b=e.target.closest('.mm2-lg button');if(b){m.querySelectorAll('.mm2-lg button').forEach(function(x){x.classList.toggle('on',x===b)})}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.body.classList.contains('mopen'))close(true)});
+if(btn)btn.addEventListener('click',function(){if(document.body.classList.contains('mopen'))setTimeout(function(){var x=m.querySelector('.mm2-x');x&&x.focus({preventScroll:true})},60)});
+})();
+</script></body></html>
