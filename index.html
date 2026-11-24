@@ -1135,7 +1135,7 @@ function update(){
   nav.classList.toggle('stuck',window.scrollY>8);
   var y=window.scrollY,dy=y-lastY;
   if(!stuck)off=bar.getBoundingClientRect().top+window.scrollY;var barTop=off-window.scrollY;
-  var s=!window.matchMedia('(max-width:760px)').matches&&barTop<=64;
+  var s=false;/* compact sticky booking strip removed */
   if(s!==stuck){
     var bw=bar.parentElement.classList.contains('bw')?bar.parentElement:null;if(bw)bw.style.height=s?bar.offsetHeight+'px':'';
     stuck=s;
