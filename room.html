@@ -639,6 +639,16 @@ html.fm-lock{overflow:hidden}
 .ey-line .eyebrow{letter-spacing:.8px;font-weight:600}
 .ohead h2{font-size:32px;font-weight:300;letter-spacing:-1.28px;line-height:1.1}
 .ogrid{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;row-gap:32px}
+.ogrid{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:20px;row-gap:32px}
+.ogrid .offer{gap:16px}
+.ogrid .ophoto{padding:14px}
+.ogrid .badge{padding:4px 10px;font-size:12px;line-height:18px;border-width:1px}
+.ogrid .ofoot{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:12px;height:auto}
+.ogrid .ofoot .o1{gap:6px}
+.ogrid .om{white-space:normal;font-size:11px;line-height:16px}
+.ogrid .ot{font-size:17px;line-height:24px}
+@media(max-width:1100px){.ogrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.ogrid{grid-template-columns:minmax(0,1fr)}.ogrid .ophoto{aspect-ratio:16/9}}
 .offer{display:flex;flex-direction:column;gap:24px;min-width:0}
 .ocard{background:var(--bg);border:1px solid rgba(255,255,255,.08);overflow:hidden;transition:transform .5s var(--e),box-shadow .5s var(--e),border-color .4s}
 .ophoto{height:auto;aspect-ratio:3/2;padding:22px 20px;background:linear-gradient(180deg,#334d7c,#091a36);transition:filter .5s}
