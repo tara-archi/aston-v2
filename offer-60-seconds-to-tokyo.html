@@ -871,7 +871,7 @@ html.fm-lock{overflow:hidden}
 .od-pg button{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.35);background:none;color:#fff;font-size:22px;line-height:1;cursor:pointer;transition:border-color .3s,color .3s}
 @media(hover:hover){.od-pg button:not(:disabled):hover{border-color:var(--c);color:var(--c)}}
 .od-pg button:disabled{opacity:.3;cursor:default}
-.od-rg{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.od-rg{display:flex;gap:24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}
 .od-rg::-webkit-scrollbar{display:none}
 .od-rg>.cf{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;min-width:0}
 @media(max-width:1100px){.od-rg{gap:16px}.od-rg>.cf{flex-basis:calc((100% - 16px)/2)}}
