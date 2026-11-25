@@ -691,9 +691,9 @@ body.stuck::before,body.stuck.bar-open::before{display:none}
 .bar .fld::after{left:16px;right:16px}
 .bar .fdiv{display:none}
 .bar .fld:nth-of-type(1){grid-column:1/-1}
-.bar .fld:nth-of-type(2){border-right:1px solid rgba(246,230,202,.25)}
-.bar .fld:nth-of-type(4){grid-column:1/-1}
-.bar.nodest .fld:nth-of-type(4){grid-column:1/-1;border-right:0}
+.bar .fld:nth-of-type(2){grid-column:1/-1}
+.bar .fld:nth-of-type(3){grid-column:1/-1}
+
 .bar.nodest.stuck .fld:nth-child(3){padding-left:16px}
 .bar .bbtn{grid-column:1/-1;height:52px;width:100%;display:flex;align-items:center;justify-content:center}
 body.stuck .bar.stuck,.bar.stuck{position:static}
@@ -779,8 +779,7 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 <section class="hero"><nav class="crumbs" aria-label="Breadcrumb"><a href="#">Home</a><i>/</i><span aria-current="page">Hotels</span></nav><p class="eyebrow e24">OUR HOTELS</p><h1>Find Your Aston</h1>
 <p class="lead">50+ hotels across 46 destinations in Indonesia and overseas. Compare, filter and check rates in one place.</p>
 <div class="bar"><div class="fld"><p class="fl">DESTINATION</p><p class="fv">Bali, Indonesia</p></div><i class="fdiv"></i>
-<div class="fld"><p class="fl">CHECK-IN</p><p class="fv">Fri, 6 Nov</p></div><i class="fdiv"></i>
-<div class="fld"><p class="fl">CHECK-OUT</p><p class="fv">Sun, 8 Nov</p></div><i class="fdiv"></i>
+<div class="fld"><p class="fl">CHECK-IN / CHECK-OUT</p><p class="fv">Fri, 6 Nov - Sun, 8 Nov</p></div><i class="fdiv"></i>
 <div class="fld"><p class="fl">GUESTS</p><p class="fv">2 adults, 1 room</p></div>
 <a class="bbtn" href="search.html">SEARCH</a></div></section>
 
@@ -900,11 +899,11 @@ function paint(){
   else s.textContent=S.inD?'Select your check-out date':'Select your check-in date';
   ap.disabled=!(S.inD&&S.outD);
 }
+function dtxt(){return S.inD?fmt(S.inD)+' - '+(S.outD?fmt(S.outD):'Add date'):'Add dates'}
+function fi(i){return i===0?0:i===3?2:1}
 function syncDates(){
-  FV(1).textContent=S.inD?fmt(S.inD):'Add date';FV(1).classList.toggle('empty',!S.inD);
-  FV(2).textContent=S.outD?fmt(S.outD):'Add date';FV(2).classList.toggle('empty',!S.outD);
-  F[1].classList.toggle('active',cal.classList.contains('open')&&picking==='in');
-  F[2].classList.toggle('active',cal.classList.contains('open')&&picking==='out');
+  FV(1).textContent=dtxt();FV(1).classList.toggle('empty',!S.inD);
+  F[1].classList.toggle('active',cal.classList.contains('open'));
 }
 cal.addEventListener('click',function(e){
   var b=e.target.closest('button');if(!b)return;
@@ -935,7 +934,7 @@ gst.addEventListener('click',function(e){
   if(b.classList.contains('dd-apply')){close();return}
   var k=b.dataset.k,d=+b.dataset.d;S[k]=Math.min(LIM[k][1],Math.max(LIM[k][0],S[k]+d));
   if(S.r>S.a)S.r=S.a;
-  FV(3).textContent=gsum();renderG();
+  FV(2).textContent=gsum();renderG();
 });
 
 /* ---------- open / close ---------- */
@@ -947,9 +946,9 @@ function open(which){
   if(i===1||i===2){picking=(i===2&&S.inD)?'out':'in';view=S.inD&&ymd(S.inD)>=ymd(TODAY)?new Date(S.inD.getFullYear(),S.inD.getMonth(),1):new Date(TODAY.getFullYear(),TODAY.getMonth(),1);hov=null;if(i===2&&S.inD&&S.outD)picking='out';renderCal(false)}
   if(i===3)renderG();
   if(i===0)markDest();
-  var p=map[i];place(p,F[i===2?1:i]);
+  var p=map[i];place(p,F[fi(i)]);
   p.classList.add('open');p.classList.add('dd-open');
-  F.forEach(function(f,j){f.classList.toggle('active',j===i);f.setAttribute('aria-expanded',j===i)});
+  F.forEach(function(f,j){f.classList.toggle('active',j===fi(i));f.setAttribute('aria-expanded',j===fi(i))});
   cur=i;syncDates();
   if(i===0)setTimeout(function(){inp.focus()},120);
 }
@@ -958,14 +957,14 @@ function close(){
   F.forEach(function(f){f.classList.remove('active');f.setAttribute('aria-expanded','false')});
   if(!S.outD&&S.inD){} /* keep partial selection visible */
 }
-['dest','in','out','guests'].forEach(function(k,i){
+['dest','in','guests'].forEach(function(k,i){
   var f=F[i];f.setAttribute('role','button');f.setAttribute('tabindex','0');f.setAttribute('aria-haspopup','dialog');f.setAttribute('aria-expanded','false');
-  f.addEventListener('click',function(e){e.stopPropagation();(cur===i)?close():open(k)});
-  f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();(cur===i)?close():open(k)}});
+  f.addEventListener('click',function(e){e.stopPropagation();(cur>-1&&fi(cur)===i)?close():open(k)});
+  f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();(cur>-1&&fi(cur)===i)?close():open(k)}});
 });
 document.addEventListener('mousedown',function(e){if(cur>-1&&!e.target.closest('.dd')&&!e.target.closest('.fld'))close()});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur>-1){var f=F[cur===2?1:cur];close();f.focus()}});
-window.addEventListener('resize',function(){if(cur>-1)place(map[cur],F[cur===2?1:cur])});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur>-1){var f=F[fi(cur)];close();f.focus()}});
+window.addEventListener('resize',function(){if(cur>-1)place(map[cur],F[fi(cur)])});
 
 /* hotel card buttons: Details -> hotel website, Book Now -> booking engine (dates/guests from the bar) */
 var HOTEL_SITE='https://hotel.example.com/'; /* TODO: swap for each hotel's own website URL */
@@ -976,8 +975,8 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
   var d=q.get('q')||q.get('city');if(d){S.dest=d;S.sel={k:q.get('q')?'hotel':'city',n:d};FV(0).textContent=d}
   var i=pd(q.get('in')),o=pd(q.get('out'));if(i&&o){S.inD=i;S.outD=o}
   ['a','c','r'].forEach(function(k){var v=parseInt(q.get(k),10);if(!isNaN(v)&&v>=LIM[k][0]&&v<=LIM[k][1])S[k]=v});
-  FV(1).textContent=fmt(S.inD);FV(2).textContent=fmt(S.outD)})();
-FV(3).textContent=gsum();
+  FV(1).textContent=dtxt()})();
+FV(2).textContent=gsum();
 })();
 </script>
 <script>(function(){
@@ -1461,7 +1460,7 @@ function fmtL(d){return DWS[d.getDay()]+', '+MON[d.getMonth()]+' '+d.getDate()}
 function rateTxt(a,b){return fmtL(a)+' - '+MON[b.getMonth()]+' '+b.getDate()}
 function fv(d){return DWS[d.getDay()]+', '+d.getDate()+' '+MON[d.getMonth()]}
 function full(d){return d.getDate()+' '+MON[d.getMonth()]+' '+d.getFullYear()}
-function syncPage(){var bar=document.querySelector('.bar');if(bar){[].forEach.call(bar.querySelectorAll('.fld'),function(x){var l=x.querySelector('.fl'),v=x.querySelector('.fv');if(!l||!v)return;var t=l.textContent.trim();if(t==='DESTINATION')v.textContent=S.dest;else if(t==='CHECK-IN')v.textContent=fv(S.a);else if(t==='CHECK-OUT')v.textContent=fv(S.b);else if(t==='GUESTS')v.textContent=S.adults+(S.adults>1?' adults':' adult')+', '+S.rooms+(S.rooms>1?' rooms':' room')})}
+function syncPage(){var bar=document.querySelector('.bar');if(bar){[].forEach.call(bar.querySelectorAll('.fld'),function(x){var l=x.querySelector('.fl'),v=x.querySelector('.fv');if(!l||!v)return;var t=l.textContent.trim();if(t==='DESTINATION')v.textContent=S.dest;else if(t==='CHECK-IN / CHECK-OUT')v.textContent=fv(S.a)+' - '+fv(S.b);else if(t==='CHECK-IN')v.textContent=fv(S.a);else if(t==='CHECK-OUT')v.textContent=fv(S.b);else if(t==='GUESTS')v.textContent=S.adults+(S.adults>1?' adults':' adult')+', '+S.rooms+(S.rooms>1?' rooms':' room')})}
 var nt=document.querySelector('.np-t'),ng=document.querySelector('.np-g');if(nt)nt.textContent=S.a.getDate()+' '+MON[S.a.getMonth()]+' - '+S.b.getDate()+' '+MON[S.b.getMonth()];if(ng)ng.textContent=S.adults+(S.adults>1?' adults':' adult');
 [].forEach.call(document.querySelectorAll('.chg'),function(c){var p=c.parentNode,sp=p.querySelector('span');if(sp)sp.textContent=rateTxt(S.a,S.b);else if(p.firstChild&&p.firstChild.nodeType===3)p.firstChild.nodeValue='Lowest Rates for '+rateTxt(S.a,S.b)})}
 function nights(a,b){return Math.round((b-a)/864e5)}
@@ -1493,7 +1492,7 @@ function render(){
   var gTxt=t.rooms+(t.rooms>1?' Rooms':' Room')+' - '+(t.adults+t.kids)+((t.adults+t.kids)>1?' Guests':' Guest');
   var gb=t.adults+(t.adults>1?' adults':' adult')+(t.kids?', '+t.kids+(t.kids>1?' children':' child'):'')+', '+t.rooms+(t.rooms>1?' rooms':' room');
   var fb=function(l,v,sc,keep){return '<button type="button" class="dp-f'+(sec===sc?' on':'')+'" data-sec="'+sc+'"'+(keep?' data-keep="1"':'')+' aria-expanded="'+(sec===sc)+'"><span class="dp-fl">'+l+'</span><span class="dp-fq">'+v+'</span></button>'};
-  var bar='<div class="dp-bar">'+fb('DESTINATION',D.dest,'dest',0)+fb('CHECK-IN',D.a?fv(D.a):'Select','date',1)+fb('CHECK-OUT',D.b?fv(D.b):'Select','date',1)+fb('GUESTS',gb,'guests',0)+'<button type="button" class="dp-ap"'+(ok?'':' disabled')+'>APPLY</button></div>';
+  var bar='<div class="dp-bar">'+fb('DESTINATION',D.dest,'dest',0)+fb('CHECK-IN / CHECK-OUT',(D.a?fv(D.a):'Select')+' - '+(D.b?fv(D.b):'Select'),'date',1)+fb('GUESTS',gb,'guests',0)+'<button type="button" class="dp-ap"'+(ok?'':' disabled')+'>APPLY</button></div>';
   pop.innerHTML='<div class="dp-in">'+bar+'<div class="dp-handle" aria-hidden="true"></div><h2 class="dp-tt">ROOM RESERVATION</h2>'
   +'<div class="dp-sc dp-sd'+(sec==='dest'?' open':'')+'"><div class="dp-bx"><div>'+destP()+'</div></div></div>'
   +'<div class="dp-sc'+(sec==='date'?' open':'')+'"><button type="button" class="dp-ac" data-sec="date" aria-expanded="'+(sec==='date')+'"><span class="dp-ic">'+I.cal+'</span><span class="dp-av">'+dateTxt+'</span>'+I.dn+'</button>'
@@ -1505,7 +1504,7 @@ function place(b){if(matchMedia('(max-width:700px)').matches){pop.style.left=pop
 function show(b,sc){if(!window.__dpi&&b.classList.contains('fld')){S.a=new Date(2026,10,6);S.b=new Date(2026,10,8);window.__dpi=1}if(b.classList.contains('chg')&&!window.__dpi&&b.dataset.a){var q=b.dataset.a.split('-'),r=b.dataset.b.split('-');S.a=new Date(+q[0],+q[1]-1,+q[2]);S.b=new Date(+r[0],+r[1]-1,+r[2]);window.__dpi=1}D={a:S.a,b:S.b,rm:cl(S.rm),dest:S.dest};sec=sc||'date';view=new Date(S.a.getFullYear(),S.a.getMonth(),1);open=b;render();pop.hidden=false;place(b);void pop.offsetWidth;pop.classList.add('on');bd.classList.add('on');b.setAttribute('aria-expanded','true')}
 function hide(ret){if(!open)return;var b=open;open=null;pop.classList.remove('on');bd.classList.remove('on');b.setAttribute('aria-expanded','false');setTimeout(function(){if(!open)pop.hidden=true},260);if(ret)b.focus()}
 btns.forEach(function(b){b.setAttribute('aria-haspopup','dialog');b.setAttribute('aria-expanded','false');b.addEventListener('click',function(e){e.stopPropagation();if(open===b)hide(true);else{if(open)hide();show(b)}})});
-document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.bar .fld');if(!f||!matchMedia('(max-width:700px)').matches)return;var l=f.querySelector('.fl');if(!l)return;var t=l.textContent.trim(),sc=(t==='CHECK-IN'||t==='CHECK-OUT')?'date':(t==='GUESTS'?'guests':null);if(!sc)return;e.stopPropagation();e.preventDefault();if(open)hide();show(f,sc)},true);
+document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.bar .fld');if(!f||!matchMedia('(max-width:700px)').matches)return;var l=f.querySelector('.fl');if(!l)return;var t=l.textContent.trim(),sc=(t==='CHECK-IN / CHECK-OUT'||t==='CHECK-IN'||t==='CHECK-OUT')?'date':(t==='GUESTS'?'guests':null);if(!sc)return;e.stopPropagation();e.preventDefault();if(open)hide();show(f,sc)},true);
 function keep(f){var s=pop.querySelector(f);if(s&&!s.disabled)s.focus({preventScroll:true})}
 pop.addEventListener('click',function(e){e.stopPropagation();var t=e.target.closest('button');if(!t||t.disabled)return;
   if(t.dataset.sec){sec=(sec===t.dataset.sec&&!t.dataset.keep)?'':t.dataset.sec;render();keep((matchMedia('(min-width:701px)').matches?'.dp-f':'.dp-ac')+'[data-sec="'+t.dataset.sec+'"]');if(sec==='dest'){var inp=pop.querySelector('.dp-ds input');if(inp)inp.focus({preventScroll:true})}if(open)place(open);return}
