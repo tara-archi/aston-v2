@@ -780,7 +780,7 @@ html.fm-lock{overflow:hidden}
 .of-chip.on b{font-weight:700}
 .of-cs{display:flex;align-items:center;gap:24px;white-space:nowrap}
 .of-cnt{font-size:14px;line-height:20px;color:var(--sec,#a3a3a3)}
-.of-cs .ar-sel>button{font-weight:700;font-size:14px}
+.of-cs .ar-sel>button{font-weight:500;font-size:16px}
 .of-feat{display:flex;gap:48px;align-items:flex-start;padding:48px var(--ax) 24px}
 .of-feat .ar-ph{flex:none;width:min(620px,50%);aspect-ratio:3/2;height:auto}
 .of-fb2{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px}
@@ -1013,7 +1013,15 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 .ho-hd h2{flex:1 1 calc(100% - 40px);min-width:0}
 .ho-hd .od-sh{width:100%}
 }
-</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style></head><body>
+</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style><style id="sortstyle">
+.ar-sel>button{min-width:0;padding:0;border:0;gap:8px;font:500 16px/24px Montserrat,sans-serif;color:#fff}
+.ar-sel>button:hover,.ar-sel.open>button{border:0;color:var(--c)}
+.ar-sel>button img{width:14px;height:14px}
+.ar-m{top:calc(100% + 10px);min-width:200px;border:1px solid rgba(246,230,202,.28);box-shadow:0 20px 40px rgba(0,0,0,.45)}
+.ar-m button{padding:10px 20px;transition:background-color .25s,color .25s}
+.ar-m button:hover,.ar-m button:focus-visible{background:rgba(255,255,255,.06);color:var(--c);padding-left:20px}
+.ar-m button.on{color:var(--c);font-weight:700}
+</style></head><body>
 <div class="page">
 <div class="pattern-top" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" poster="assets/pattern-top.png" width="887" height="425" aria-hidden="true" tabindex="-1"><source src="assets/moving-pattern.mp4" type="video/mp4"><source src="assets/moving-pattern.webm" type="video/webm"></video></div>
 <header class="nav fig"><a class="logo" href="index.html"><img src="assets/logo.svg" alt="Aston" width="160" height="64"></a>
@@ -1023,7 +1031,7 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 <section class="ar-hero"><nav class="ar-cr" aria-label="Breadcrumb"><a href="index.html">Home</a><i>/</i><span aria-current="page">Offers</span></nav><h1>Offers &amp; Packages</h1><p class="ar-lede">Current campaigns, promo codes and direct-booking deals across Aston and Archipelago hotels in Indonesia.</p></section>
 <section class="of-bar"><label class="ar-s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="oq" type="text" placeholder="Search an offer, hotel or city" autocomplete="off" aria-label="Search offers"></label></section>
 <section class="of-fb"><div class="of-chips" role="group" aria-label="Offer categories"><button type="button" class="of-chip on" data-c="all" aria-pressed="true"><b>ALL</b><span>12</span></button><button type="button" class="of-chip" data-c="room" aria-pressed="false"><b>ROOM OFFERS</b><span>11</span></button><button type="button" class="of-chip" data-c="dining" aria-pressed="false"><b>DINING OFFERS</b><span>1</span></button><button type="button" class="of-chip" data-c="ending" aria-pressed="false"><b>ENDING SOON</b><span>7</span></button></div>
-<div class="of-cs"><span class="of-cnt" id="ocnt" aria-live="polite">Showing 12 of 12 offers</span><div class="ar-sel"><button type="button" aria-haspopup="true" aria-expanded="false"><span>Sort: Latest</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button><div class="ar-m"><button type="button" class="on" data-v="latest">Latest</button><button type="button" data-v="az">A to Z</button></div></div></div></section>
+<div class="of-cs"><span class="of-cnt" id="ocnt" aria-live="polite">Showing 12 of 12 offers</span><div class="ar-sel"><button type="button" aria-haspopup="true" aria-expanded="false"><span>Sort by: Latest</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button><div class="ar-m"><button type="button" class="on" data-v="latest">Latest</button><button type="button" data-v="az">A to Z</button></div></div></div></section>
 <section class="of-feat" data-c="room" data-k="Festive Delights Christmas New Year's Eve hampers 145 hotels"><div class="ar-ph" role="img" aria-label="Festive Delights" style="--img:url('assets/offer-festive.jpg')"></div>
 <div class="of-fb2"><p class="of-h">145 HOTELS</p><div class="of-bd"><span class="of-tag">ROOM OFFERS</span></div><h2>Festive Delights</h2><p class="d">Save up to 30% on December stays at Archipelago Hotels. Explore Christmas dining, New Year's Eve packages, and festive hampers with Festive Delights 2026.</p>
 <div class="of-facts"><div><span>DISCOUNT</span><b>Up to 30% off</b></div><div><span>HOTELS</span><b>145</b></div><div><span>STAY IN</span><b>December 2026</b></div></div>
@@ -1098,7 +1106,7 @@ document.querySelectorAll('.of-chip').forEach(function(b){b.addEventListener('cl
 q.addEventListener('input',lay);
 var w=document.querySelector('.ar-sel'),sb=w.querySelector('button'),lab=sb.querySelector('span');
 sb.addEventListener('click',function(e){e.stopPropagation();var o=!w.classList.contains('open');w.classList.toggle('open',o);sb.setAttribute('aria-expanded',o)});
-w.querySelectorAll('.ar-m button').forEach(function(o){o.addEventListener('click',function(){w.querySelectorAll('.ar-m button').forEach(function(x){x.classList.remove('on')});o.classList.add('on');lab.textContent='Sort: '+o.textContent;w.classList.remove('open');sb.setAttribute('aria-expanded',false);
+w.querySelectorAll('.ar-m button').forEach(function(o){o.addEventListener('click',function(){w.querySelectorAll('.ar-m button').forEach(function(x){x.classList.remove('on')});o.classList.add('on');lab.textContent='Sort by: '+o.textContent;w.classList.remove('open');sb.setAttribute('aria-expanded',false);
 [].slice.call(document.querySelectorAll('.of-g')).forEach(function(g){var a=[].slice.call(g.children).filter(function(c){return c.classList.contains('of-c')});a.sort(function(x,y){return o.dataset.v==='az'?x.dataset.t.localeCompare(y.dataset.t):x.dataset.i-y.dataset.i});a.forEach(function(c){g.appendChild(c)})})})});
 document.addEventListener('click',function(){w.classList.remove('open');sb.setAttribute('aria-expanded',false)});
 var cp=document.getElementById('ocopy');if(cp)cp.addEventListener('click',function(){var t=cp.dataset.code,l=cp.querySelector('span'),d=function(){var o=l.textContent;l.textContent='COPIED';setTimeout(function(){l.textContent='COPY CODE'},1600)};
