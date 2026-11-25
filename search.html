@@ -1564,4 +1564,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)})
 menu.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;e.stopPropagation();
   menu.querySelectorAll('button').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected',false)});b.classList.add('on');b.setAttribute('aria-selected',true);lab.textContent=' : '+b.textContent;set(false);
   var v=b.dataset.v;cards.slice().sort(function(a,b2){return v==='lo'?a.p-b2.p||a.i-b2.i:b2.p-a.p||a.i-b2.i}).forEach(function(x){grid.appendChild(x.c)})});
+/* default sort: lowest price */
+menu.querySelector('[data-v=lo]').click();
 })();</script></body></html>
