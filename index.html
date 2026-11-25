@@ -768,7 +768,27 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 .ho-hd .od-sh{width:100%}
 .vrow .dest:last-child:nth-child(odd){grid-column:1/-1}.vrow .dest:last-child:nth-child(odd) .ph{aspect-ratio:2/1}.vrow .dest:last-child:nth-child(odd){order:1}.vrow .dest:nth-child(n+3):not(:last-child){order:2}
 }
-</style><style>/*hph*/.hphoto[style*="--img"]{background:var(--img) center/cover no-repeat}</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style></head><body>
+</style><style>/*hph*/.hphoto[style*="--img"]{background:var(--img) center/cover no-repeat}</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style><style id="barpolish">
+/* booking bar polish: icons, hierarchy, nights chip, search icon */
+.bar{box-shadow:0 20px 56px rgba(0,0,0,.38)}
+.bar .fld{padding-left:64px}
+.bar .fld::before{content:"";position:absolute;left:26px;top:50%;width:22px;height:22px;translate:0 -50%;background:var(--c);opacity:.85;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat;transition:opacity .3s,scale .4s var(--e)}
+.bar .fld:hover::before,.bar .fld.active::before{opacity:1;scale:1.08}
+.bar .fld:nth-of-type(1)::before{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z'/%3E%3Ccircle cx='12' cy='9.5' r='2.5'/%3E%3C/svg%3E")}
+.bar .fld:nth-of-type(2)::before{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='5' width='17' height='15.5' rx='1'/%3E%3Cpath d='M3.5 10h17M8 3v4M16 3v4'/%3E%3C/svg%3E")}
+.bar .fld:nth-of-type(3)::before{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8' r='3.5'/%3E%3Cpath d='M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M16 4.8a3.5 3.5 0 0 1 0 6.4M18 14.2c2.2.7 3.5 2.6 3.5 5.8'/%3E%3C/svg%3E")}
+.bar .fl{font-size:11px;letter-spacing:1.6px;opacity:.8}
+.bar .fv{font-size:17px;line-height:24px;color:#fff}
+.bar .fv.empty{color:var(--sec)}
+.bar .fld:nth-of-type(2){padding-right:112px}
+.bar .fnn{position:absolute;right:22px;top:50%;translate:0 -50%;font-size:11px;font-weight:600;letter-spacing:1.2px;color:var(--c);border:1px solid rgba(246,230,202,.4);padding:4px 10px;line-height:16px;white-space:nowrap}
+.bar .fnn:empty{display:none}
+.bbtn svg{flex:none;margin-right:10px;transition:translate .4s var(--e)}
+.bbtn:hover svg{translate:2px 0}
+@media(max-width:760px){.bar .fld{padding-left:56px}.bar .fld::before{left:18px}.bar .fld:nth-of-type(2){padding-right:104px}.bar .fnn{right:14px}.bar .fv{font-size:16px}}
+@media(min-width:761px) and (max-width:1100px){.bar .fld{padding-left:50px;padding-right:12px}.bar .fld::before{left:16px;width:20px;height:20px}.bar .fld:nth-of-type(2){padding-right:12px}.bar .fnn{display:none}.bar .fv{font-size:14px}.bar .fld:nth-of-type(2){flex:1.9}.bar .bbtn{padding:0 14px}.bar .bbtn svg{display:none}}
+@media(min-width:1101px) and (max-width:1279px){.bar .fnn{display:none}.bar .fld:nth-of-type(2){padding-right:24px}}
+</style></head><body>
 <div class="page">
 <div class="pattern-top" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" poster="assets/pattern-top.png" width="887" height="425" aria-hidden="true" tabindex="-1"><source src="assets/moving-pattern.mp4" type="video/mp4"><source src="assets/moving-pattern.webm" type="video/webm"></video></div>
 
@@ -781,7 +801,7 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 <div class="bar"><div class="fld"><p class="fl">DESTINATION</p><p class="fv">Bali, Indonesia</p></div><i class="fdiv"></i>
 <div class="fld"><p class="fl">CHECK-IN / CHECK-OUT</p><p class="fv">Fri, 6 Nov - Sun, 8 Nov</p></div><i class="fdiv"></i>
 <div class="fld"><p class="fl">GUESTS</p><p class="fv">2 adults, 1 room</p></div>
-<a class="bbtn" href="search.html">SEARCH</a></div></section>
+<a class="bbtn" href="search.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>SEARCH</a></div></section>
 
 <section class="sec views"><div class="sh8"><p class="eyebrow e144">CHOOSE YOUR VIEW</p><h2 class="h32">Pick Your Views</h2></div><div class="vrow"><a class="dest" href="view.html" aria-label="City view hotels"><div class="ph photo sq" data-ph="view-city.png" style="--img:url(assets/view-city.png)"></div><div class="label"><p class="l1">CITY</p><p class="l2">62 hotels</p></div></a><a class="dest" href="#" aria-label="Garden view hotels"><div class="ph photo sq" data-ph="view-garden.png" style="--img:url(assets/view-garden.png)"></div><div class="label"><p class="l1">GARDEN</p><p class="l2">19 hotels</p></div></a><a class="dest" href="#" aria-label="Mountain view hotels"><div class="ph photo sq" data-ph="view-mountain.png" style="--img:url(assets/view-mountain.png)"></div><div class="label"><p class="l1">MOUNTAIN</p><p class="l2">20 hotels</p></div></a><a class="dest" href="#" aria-label="Beach view hotels"><div class="ph photo sq" data-ph="view-beach.png" style="--img:url(assets/view-beach.png)"></div><div class="label"><p class="l1">BEACH</p><p class="l2">5 hotels</p></div></a><a class="dest" href="#" aria-label="Pool view hotels"><div class="ph photo sq" data-ph="view-pool.png" style="--img:url(assets/view-pool.png)"></div><div class="label"><p class="l1">POOL</p><p class="l2">8 hotels</p></div></a></div></section>
 
@@ -1546,4 +1566,10 @@ document.addEventListener('click',function(e){if(!d.contains(e.target))open(fals
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open')){open(false);b.focus()}});
 })();
 </script>
-</body></html>
+<script>(function(){var bar=document.querySelector('.bar');if(!bar)return;var d=bar.querySelectorAll('.fld')[1];if(!d)return;
+var chip=d.querySelector('.fnn');if(!chip){chip=document.createElement('span');chip.className='fnn';d.appendChild(chip)}
+var M={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+function upd(){var t=(d.querySelector('.fv')||{}).textContent||'',m=/(\d+)\s(\w{3})\s*-\s*\w{3},\s(\d+)\s(\w{3})/.exec(t),v='';
+  if(m&&M[m[2]]!==undefined&&M[m[4]]!==undefined){var y=2026,a=new Date(y,M[m[2]],+m[1]),b=new Date(M[m[4]]<M[m[2]]?y+1:y,M[m[4]],+m[3]),n=Math.round((b-a)/864e5);if(n>0)v=n+(n>1?' NIGHTS':' NIGHT')}
+  if(chip.textContent!==v)chip.textContent=v}
+new MutationObserver(upd).observe(d,{subtree:true,childList:true,characterData:true});upd()})();</script></body></html>
