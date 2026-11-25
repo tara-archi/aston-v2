@@ -514,7 +514,10 @@ body.stuck::before,body.stuck.bar-open::before{height:var(--strip,110px)}
 .bn::before{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--e);z-index:-1}
 .bn:hover::before{transform:scaleX(1)}.bn:active{scale:.97}
 .nav.fig .nav-pill{display:none}
-body.stuck .nav.fig .bn{display:none}
+/* BOOK NOW appears in the navbar once the hero has scrolled away */
+.nav-bn{max-width:0;margin-left:-24px;padding:0;opacity:0;visibility:hidden;pointer-events:none;transition:max-width .5s var(--e),margin-left .5s var(--e),padding .5s var(--e),opacity .35s var(--e),visibility 0s .5s,color .4s}
+body.hero-out .nav-bn{max-width:180px;margin-left:0;padding:0 32px;opacity:1;visibility:visible;pointer-events:auto;transition:max-width .5s var(--e),margin-left .5s var(--e),padding .5s var(--e),opacity .45s var(--e) .1s,visibility 0s,color .4s}
+
 
 /* breadcrumbs (shared) */
 .crumbs{position:absolute;top:28px;left:var(--gx);display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:1.1px;line-height:normal;white-space:nowrap}
@@ -785,7 +788,7 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 
 <header class="nav fig"><a class="logo" href="#"><img src="assets/logo.svg" alt="Aston" width="160" height="64"></a>
 <nav class="links"><a class="on" href="#" aria-current="page">HOTELS</a><a href="offers.html">OFFERS</a><a href="meetings.html">MEETINGS</a><a href="#">WEDDINGS</a><div class="pr"><button class="prb" type="button" aria-haspopup="true" aria-expanded="false">PRESS ROOM<img src="assets/chevron-down.svg" alt="" width="14" height="14"></button><div class="prm" role="menu"><a role="menuitem" href="news.html">News &amp; Press</a><a role="menuitem" href="articles.html">Articles</a></div></div></nav>
-<button class="nav-pill" type="button" aria-label="Edit your search" aria-expanded="false"><span class="np-d">Bali</span><i></i><span class="np-t">6 Nov - 8 Nov</span><i class="np-gi"></i><span class="np-g">2 adults</span><b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></b></button><div class="navr"><img src="assets/nav-icon.svg" alt="" width="29" height="30"><div class="lg"><button class="lgb" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Change language"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.8 1.7 2.7 3.8 2.7 6.3S9.8 12.6 8 14.3C6.2 12.6 5.3 10.5 5.3 8S6.2 3.4 8 1.7z"/></svg><span>EN</span></button><div class="prm lgm" role="menu"><button type="button" role="menuitem" class="on" data-l="EN">English</button><button type="button" role="menuitem" data-l="ID">Bahasa Indonesia</button></div></div></div></header>
+<button class="nav-pill" type="button" aria-label="Edit your search" aria-expanded="false"><span class="np-d">Bali</span><i></i><span class="np-t">6 Nov - 8 Nov</span><i class="np-gi"></i><span class="np-g">2 adults</span><b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></b></button><div class="navr"><img src="assets/nav-icon.svg" alt="" width="29" height="30"><div class="lg"><button class="lgb" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Change language"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.8 1.7 2.7 3.8 2.7 6.3S9.8 12.6 8 14.3C6.2 12.6 5.3 10.5 5.3 8S6.2 3.4 8 1.7z"/></svg><span>EN</span></button><div class="prm lgm" role="menu"><button type="button" role="menuitem" class="on" data-l="EN">English</button><button type="button" role="menuitem" data-l="ID">Bahasa Indonesia</button></div></div><a class="bn nav-bn" href="search.html">BOOK NOW</a></div></header>
 
 <section class="hero"><nav class="crumbs" aria-label="Breadcrumb"><a href="#">Home</a><i>/</i><span aria-current="page">Hotels</span></nav><h1>Find Your Aston</h1>
 <p class="lead">50+ hotels across 46 destinations in Indonesia and overseas. Compare, filter and check rates in one place.</p>
@@ -1148,7 +1151,7 @@ var body=document.body,root=document.documentElement,off=bar.getBoundingClientRe
 function measure(){if(!stuck)off=bar.getBoundingClientRect().top+window.scrollY}
 function update(){
   tick=false;
-  nav.classList.toggle('stuck',window.scrollY>8);
+  nav.classList.toggle('stuck',window.scrollY>8);body.classList.toggle('hero-out',hero.getBoundingClientRect().bottom<=nav.offsetHeight);
   var y=window.scrollY,dy=y-lastY;
   if(!stuck)off=bar.getBoundingClientRect().top+window.scrollY;var barTop=off-window.scrollY;
   var s=false;/* compact sticky booking strip removed */
