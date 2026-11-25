@@ -1017,17 +1017,13 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 .ho-hd .od-sh{width:100%}
 }
 </style><style>/*hph*/.hphoto[style*="--img"]{background:var(--img) center/cover no-repeat}</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style><style id="barpolish">
-/* booking bar polish: value/label hierarchy, nights chip */
+/* booking bar polish: value/label hierarchy */
 .bar{box-shadow:0 20px 56px rgba(0,0,0,.38)}
 .bar .fl{font-size:11px;letter-spacing:1.6px;opacity:.8}
 .bar .fv{font-size:17px;line-height:24px;color:#fff}
 .bar .fv.empty{color:var(--sec)}
-.bar .fld:nth-of-type(2){padding-right:112px}
-.bar .fnn{position:absolute;right:22px;top:50%;translate:0 -50%;font-size:11px;font-weight:600;letter-spacing:1.2px;color:var(--c);border:1px solid rgba(246,230,202,.4);padding:4px 10px;line-height:16px;white-space:nowrap}
-.bar .fnn:empty{display:none}
-@media(max-width:760px){.bar .fld:nth-of-type(2){padding-right:104px}.bar .fnn{right:14px}.bar .fv{font-size:16px}}
-@media(min-width:761px) and (max-width:1100px){.bar .fld{padding-right:12px}.bar .fld:nth-of-type(2){padding-right:12px;flex:1.9}.bar .fnn{display:none}.bar .fv{font-size:14px}.bar .bbtn{padding:0 14px}}
-@media(min-width:1101px) and (max-width:1279px){.bar .fnn{display:none}.bar .fld:nth-of-type(2){padding-right:24px}}
+@media(max-width:760px){.bar .fv{font-size:16px}}
+@media(min-width:761px) and (max-width:1100px){.bar .fld{padding-right:12px}.bar .fld:nth-of-type(2){flex:1.9}.bar .fv{font-size:14px}.bar .bbtn{padding:0 14px}}
 </style></head><body>
 <div class="page">
 <div class="pattern-top" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" poster="assets/pattern-top.png" width="887" height="425" aria-hidden="true" tabindex="-1"><source src="assets/moving-pattern.mp4" type="video/mp4"><source src="assets/moving-pattern.webm" type="video/webm"></video></div>
@@ -1808,10 +1804,4 @@ n.addEventListener('click',function(){g.scrollBy({left:step()*per(),behavior:'sm
 g.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
 })();
 </script>
-<script>(function(){var bar=document.querySelector('.bar');if(!bar)return;var d=bar.querySelectorAll('.fld')[1];if(!d)return;
-var chip=d.querySelector('.fnn');if(!chip){chip=document.createElement('span');chip.className='fnn';d.appendChild(chip)}
-var M={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
-function upd(){var t=(d.querySelector('.fv')||{}).textContent||'',m=/(\d+)\s(\w{3})\s*-\s*\w{3},\s(\d+)\s(\w{3})/.exec(t),v='';
-  if(m&&M[m[2]]!==undefined&&M[m[4]]!==undefined){var y=2026,a=new Date(y,M[m[2]],+m[1]),b=new Date(M[m[4]]<M[m[2]]?y+1:y,M[m[4]],+m[3]),n=Math.round((b-a)/864e5);if(n>0)v=n+(n>1?' NIGHTS':' NIGHT')}
-  if(chip.textContent!==v)chip.textContent=v}
-new MutationObserver(upd).observe(d,{subtree:true,childList:true,characterData:true});upd()})();</script></body></html>
+</body></html>
