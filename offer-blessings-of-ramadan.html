@@ -1386,7 +1386,7 @@ m.addEventListener('click',function(e){if(e.target.closest('a'))document.body.cl
 .od-dt[aria-expanded=true],.ho-dt[aria-expanded=true]{border-color:var(--c,#f6e6ca)}
 .dp-bar{display:none}
 @media(min-width:701px){
-.dp{width:880px;background:#091a36;border-color:var(--c,#f6e6ca)}
+.dp{width:720px;background:#091a36;border-color:var(--c,#f6e6ca)}
 .dp-in{padding:0;gap:0}
 .dp-tt,.dp-ac,.dp-apm{display:none}
 .dp-bar{display:flex;align-items:stretch;min-height:64px}
@@ -1487,9 +1487,8 @@ function render(){
   var gTxt=t.rooms+(t.rooms>1?' Rooms':' Room')+' - '+(t.adults+t.kids)+((t.adults+t.kids)>1?' Guests':' Guest');
   var gb=t.adults+(t.adults>1?' adults':' adult')+(t.kids?', '+t.kids+(t.kids>1?' children':' child'):'')+', '+t.rooms+(t.rooms>1?' rooms':' room');
   var fb=function(l,v,sc,keep){return '<button type="button" class="dp-f'+(sec===sc?' on':'')+'" data-sec="'+sc+'"'+(keep?' data-keep="1"':'')+' aria-expanded="'+(sec===sc)+'"><span class="dp-fl">'+l+'</span><span class="dp-fq">'+v+'</span></button>'};
-  var bar='<div class="dp-bar">'+fb('DESTINATION',D.dest,'dest',0)+fb('CHECK-IN',D.a?fv(D.a):'Select','date',1)+fb('CHECK-OUT',D.b?fv(D.b):'Select','date',1)+fb('GUESTS',gb,'guests',0)+'<button type="button" class="dp-ap"'+(ok?'':' disabled')+'>APPLY</button></div>';
+  var bar='<div class="dp-bar">'+fb('CHECK-IN / CHECK-OUT',(D.a?fv(D.a):'Select')+(D.b?' - '+fv(D.b):''),'date',1)+fb('GUESTS',gb,'guests',0)+'<button type="button" class="dp-ap"'+(ok?'':' disabled')+'>APPLY</button></div>';
   pop.innerHTML='<div class="dp-in">'+bar+'<div class="dp-handle" aria-hidden="true"></div><h2 class="dp-tt">ROOM RESERVATION</h2>'
-  +'<div class="dp-sc dp-sd'+(sec==='dest'?' open':'')+'"><div class="dp-bx"><div>'+destP()+'</div></div></div>'
   +'<div class="dp-sc'+(sec==='date'?' open':'')+'"><button type="button" class="dp-ac" data-sec="date" aria-expanded="'+(sec==='date')+'"><span class="dp-ic">'+I.cal+'</span><span class="dp-av">'+dateTxt+'</span>'+I.dn+'</button>'
   +'<div class="dp-bx"><div><div class="dp-cal"><div class="dp-ch"><span>'+(ok?full(D.a)+' - '+full(D.b):'DD MM YYYY - DD MM YYYY')+'</span><small>'+(ok?nn+(nn>1?' Nights':' Night'):'')+'</small></div>'
   +'<div class="dp-cb">'+mon(y,m)+mon(y2,m2)+'<p class="dp-lg"><span><i></i>Lowest Price in IDR</span><small>'+(ok?nn+(nn>1?' Nights':' Night'):'')+'</small></p></div></div></div></div></div>'
