@@ -1127,20 +1127,18 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 .ho-hd h2{flex:1 1 calc(100% - 40px);min-width:0}
 .ho-hd .od-sh{width:100%}
 }
-</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style><style>/* hotel header: big name + divider; booking lives in the sticky card */
-.ho-hd{display:block;padding:0 0 24px;border:0;border-bottom:1px solid rgba(255,255,255,.14);background:none;min-height:0}
-.ho-hd .ho-ey{font-size:11px;font-weight:600;letter-spacing:1.5px;line-height:16px;color:var(--sec,#a3a3a3);margin-bottom:8px}
-.od .ho-r .ho-hd h2{display:block;flex:none;font-size:32px;line-height:40px;font-weight:700;color:#fff;letter-spacing:-.1px;padding:0}
-.ho-r{gap:24px}
-.od-bkx{display:flex;flex-direction:column;gap:10px;margin-top:4px;padding-top:16px;border-top:1px solid rgba(149,149,149,.19)}
-.od-bkx .od-bkl{font-size:11px;font-weight:600;letter-spacing:1.2px;line-height:16px;color:var(--sec,#a3a3a3)}
-.od-bkx .od-dt{width:100%;height:44px;padding:0 14px;justify-content:flex-start}
-.od-bkx .od-dt img{margin-left:auto}
-.od-bkx .ho-bk{width:100%;height:44px;padding:0 24px}
-@media(max-width:700px){.od .ho-r .ho-hd h2{font-size:22px;line-height:30px}}
-</style>
-<style>/* offer name leads the page; hotel name sits in the card */
+</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style><style>/* offer name header: title left, one date field + one Book button right; picker applies on change */
+.ho-hd{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 0 24px;border:0;border-bottom:1px solid rgba(255,255,255,.14);background:none;min-height:0}
+.od .ho-r .ho-hd h2{display:block;flex:1;min-width:0;font-size:32px;line-height:40px;font-weight:700;color:#fff;letter-spacing:-.1px;padding:0}
+.ho-ctl{display:flex;align-items:center;gap:8px;flex:none}
+.ho-ctl .od-dt{height:44px;padding:0 14px}
+.ho-ctl .ho-bk{width:auto;height:44px;padding:0 24px;white-space:nowrap}
 .od-ho .od-b h1{font-size:16px;line-height:22px;font-weight:600}
+.ho-r{gap:24px}
+@container (max-width:900px){.ho-hd{flex-wrap:wrap}.ho-ctl{width:100%}.ho-ctl .od-dt{flex:1;min-width:0}}
+@container (max-width:440px){.ho-ctl{flex-direction:column;align-items:stretch}.ho-ctl .od-dt,.ho-ctl .ho-bk{width:100%}}
+@media(max-width:700px){.od .ho-r .ho-hd h2{font-size:24px;line-height:32px}.ho-ctl{flex-direction:column;align-items:stretch}.ho-ctl .od-dt,.ho-ctl .ho-bk{width:100%}}
+.dp-ap{display:none!important}
 </style>
 </head><body>
 <div class="page">
@@ -1154,9 +1152,8 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 <aside class="od-side ho-side od-ho"><div class="od-card"><div class="ar-ph" role="img" aria-label="A Magical Night" style="--img:url('assets/offer-magical.jpg')"><span class="od-bg"><i>ENDING SOON</i></span></div>
 <div class="od-b"><p class="od-ty od-m"><span>ROOM OFFERS</span></p><h1>Aston Purwokerto Hotel &amp; Convention Center</h1>
 <div class="ho-ct"><div class="od-f ho-f"><span>BOOKING PERIOD</span><b>15 &ndash; 31 Dec 2026</b></div><div class="od-f ho-f"><span>STAY DATE</span><b>31 Dec 2026</b></div></div>
-<div class="od-bkx"><span class="od-bkl">CHECK AVAILABILITY</span><button type="button" class="od-dt"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span>12 &ndash; 13 Nov 2026 &nbsp;&middot;&nbsp; 1 room, 2 adults</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button><a class="ho-bk" href="#" data-n="Aston Purwokerto Hotel &amp; Convention Center">BOOK THIS HOTEL<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
 <div class="od-shr"><button type="button" id="odshare"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="4" cy="8" r="1.8"/><circle cx="12" cy="3.5" r="1.8"/><circle cx="12" cy="12.5" r="1.8"/><path d="M5.7 7.1l4.6-2.7M5.7 8.9l4.6 2.7"/></svg>Share</button></div></div></div></aside>
-<div class="ho-r"><div class="ho-hd"><p class="ho-ey">OFFER</p><h2>A Magical Night</h2></div>
+<div class="ho-r"><div class="ho-hd"><h2>A Magical Night</h2><div class="ho-ctl"><button type="button" class="od-dt"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span>12 &ndash; 13 Nov 2026 &nbsp;&middot;&nbsp; 1 room, 2 adults</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button><a class="ho-bk" href="#" data-n="Aston Purwokerto Hotel &amp; Convention Center">BOOK THIS HOTEL<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div></div>
 <p class="ho-lead">Enjoy a memorable New Year's Eve celebration with a special stay, festive dinner, and an exclusive musical performance by Yuni Shara.</p>
 <div class="ho-tx"><p>Starting from IDR 2,200,000 nett/room/night, including breakfast for 2 persons, 2 regular event tickets with dinner, and complimentary station pick-up.</p></div>
 <section class="ho-tc"><h3>TERMS &amp; CONDITIONS</h3><ol><li>Advance reservation required.</li><li>Rates vary by room type.</li><li>Subject to availability and hotel confirmation.</li></ol></section></div>
@@ -1536,16 +1533,17 @@ function show(b,sc){if(!window.__dpi&&b.classList.contains('fld')){S.a=new Date(
 function hide(ret){if(!open)return;var b=open;open=null;pop.classList.remove('on');bd.classList.remove('on');b.setAttribute('aria-expanded','false');setTimeout(function(){if(!open)pop.hidden=true},260);if(ret)b.focus()}
 btns.forEach(function(b){b.setAttribute('aria-haspopup','dialog');b.setAttribute('aria-expanded','false');b.addEventListener('click',function(e){e.stopPropagation();if(open===b)hide(true);else{if(open)hide();show(b)}})});
 document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.bar .fld');if(!f||!matchMedia('(max-width:700px)').matches)return;var l=f.querySelector('.fl');if(!l)return;var t=l.textContent.trim(),sc=(t==='CHECK-IN'||t==='CHECK-OUT')?'date':(t==='GUESTS'?'guests':null);if(!sc)return;e.stopPropagation();e.preventDefault();if(open)hide();show(f,sc)},true);
+function commit(){if(!(D.a&&D.b))return;var tt=tot(D.rm);S={a:D.a,b:D.b,rm:cl(D.rm),rooms:tt.rooms,adults:tt.adults,kids:tt.kids,dest:D.dest};btns.forEach(function(x){var sp=x.querySelector('span');if(sp)sp.innerHTML=rng(S.a,S.b)+' &nbsp;&middot;&nbsp; '+gs(S)});syncPage()}
 function keep(f){var s=pop.querySelector(f);if(s&&!s.disabled)s.focus({preventScroll:true})}
 pop.addEventListener('click',function(e){e.stopPropagation();var t=e.target.closest('button');if(!t||t.disabled)return;
   if(t.dataset.sec){sec=(sec===t.dataset.sec&&!t.dataset.keep)?'':t.dataset.sec;render();keep((matchMedia('(min-width:701px)').matches?'.dp-f':'.dp-ac')+'[data-sec="'+t.dataset.sec+'"]');if(sec==='dest'){var inp=pop.querySelector('.dp-ds input');if(inp)inp.focus({preventScroll:true})}if(open)place(open);return}
   if(t.dataset.dest){D.dest=t.dataset.dest;sec='date';render();keep('.dp-f[data-sec="date"]');if(open)place(open);return}
   if(t.dataset.nav){view=new Date(view.getFullYear(),view.getMonth()+(+t.dataset.nav),1);render();return}
-  if(t.dataset.k){var d=new Date(+t.dataset.y,+t.dataset.m,+t.dataset.n);if(!D.a||D.b||d<=D.a){D.a=d;D.b=null}else D.b=d;render();keep('.dp-d[data-k="'+key(d)+'"]');if(D.a&&D.b&&matchMedia('(min-width:701px)').matches){var pb=D.b;setTimeout(function(){if(open&&D.b===pb&&sec==='date'){sec='guests';render();keep('.dp-f[data-sec="guests"]');place(open)}},300)}return}
+  if(t.dataset.k){var d=new Date(+t.dataset.y,+t.dataset.m,+t.dataset.n);if(!D.a||D.b||d<=D.a){D.a=d;D.b=null}else D.b=d;render();keep('.dp-d[data-k="'+key(d)+'"]');commit();if(D.a&&D.b&&matchMedia('(min-width:701px)').matches){var pb=D.b;setTimeout(function(){if(open&&D.b===pb&&sec==='date'){sec='guests';render();keep('.dp-f[data-sec="guests"]');place(open)}},300)}return}
   if(t.dataset.f){var f=t.dataset.f,dd=+t.dataset.d,r=+t.dataset.rm;
     if(f==='rooms'){var n=Math.max(1,Math.min(5,D.rm.length+dd));while(D.rm.length<n)D.rm.push({a:2,k:0});while(D.rm.length>n)D.rm.pop()}
     else{var lim=f==='a'?[1,4]:[0,3];D.rm[r][f]=Math.max(lim[0],Math.min(lim[1],D.rm[r][f]+dd))}
-    render();keep('[data-rm="'+r+'"][data-f="'+f+'"][data-d="'+t.dataset.d+'"]');return}
+    commit();render();keep('[data-rm="'+r+'"][data-f="'+f+'"][data-d="'+t.dataset.d+'"]');return}
   if(t.classList.contains('dp-ap')){var tt=tot(D.rm);S={a:D.a,b:D.b,rm:cl(D.rm),rooms:tt.rooms,adults:tt.adults,kids:tt.kids,dest:D.dest};btns.forEach(function(x){var sp=x.querySelector('span');if(sp)sp.innerHTML=rng(S.a,S.b)+' &nbsp;&middot;&nbsp; '+gs(S)});syncPage();hide(true)}});
 pop.addEventListener('input',function(e){var i=e.target;if(!i.matches||!i.matches('.dp-ds input'))return;var q=i.value.trim().toLowerCase(),n=0;[].forEach.call(pop.querySelectorAll('.dp-dr'),function(r){var m=!q||r.dataset.q.indexOf(q)>-1;r.hidden=!m;if(m)n++});[].forEach.call(pop.querySelectorAll('.dp-dh'),function(h){var x=h.nextElementSibling,any=false;while(x&&x.classList.contains('dp-dr')){if(!x.hidden)any=true;x=x.nextElementSibling}h.hidden=!any});pop.querySelector('.dp-de').style.display=n?'none':'block'});
 pop.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.matches&&e.target.matches('.dp-ds input')){e.preventDefault();var r=pop.querySelector('.dp-dr:not([hidden])');if(r)r.click()}});
