@@ -948,7 +948,7 @@ var LIM={a:[1,8],c:[0,6],r:[1,5]};
 function gsum(){return S.a+' adult'+(S.a>1?'s':'')+(S.c?', '+S.c+' child'+(S.c>1?'ren':''):'')+', '+S.r+' room'+(S.r>1?'s':'')}
 function grow(k,t,s){return '<div class="g-row"><div><p class="g-t">'+t+'</p><p class="g-s">'+s+'</p></div><div class="g-step"><button type="button" class="g-b" data-k="'+k+'" data-d="-1" aria-label="Decrease '+t+'">&minus;</button><span class="g-n" aria-live="polite">'+S[k]+'</span><button type="button" class="g-b" data-k="'+k+'" data-d="1" aria-label="Increase '+t+'">+</button></div></div>'}
 function renderG(){
-  gst.innerHTML=grow('a','Adults','Age 13 and above')+grow('c','Children','Age 0 to 12')+grow('r','Rooms','Up to one room per adult')+'<div class="g-f"><p class="g-note">'+gsum()+'</p><button type="button" class="dd-apply">DONE</button></div>';
+  gst.innerHTML=grow('a','Adults','Age 13 and above')+grow('c','Children','Age 0 to 12')+grow('r','Rooms','Up to one room per adult')+'<div class="g-f"><p class="g-note">'+gsum()+'</p></div>';
   gst.querySelectorAll('.g-b').forEach(function(b){var k=b.dataset.k,d=+b.dataset.d,v=S[k]+d;b.disabled=v<LIM[k][0]||v>LIM[k][1]||(k==='r'&&d>0&&S.r>=S.a)});
 }
 gst.addEventListener('click',function(e){
