@@ -1107,7 +1107,7 @@ function monthHTML(base,first,last){
 }
 function renderCal(anim){
   var m2=new Date(view.getFullYear(),view.getMonth()+1,1);
-  cal.innerHTML='<div class="cal-wrap">'+monthHTML(view,true,false)+monthHTML(m2,false,true)+'</div><div class="cal-f"><p class="cal-sum"></p><div class="dd-actions"><button type="button" class="dd-clear">CLEAR DATES</button><button type="button" class="dd-apply">APPLY</button></div></div>';
+  cal.innerHTML='<div class="cal-wrap">'+monthHTML(view,true,false)+monthHTML(m2,false,true)+'</div><div class="cal-f"><p class="cal-sum"></p><div class="dd-actions"><button type="button" class="dd-clear">CLEAR DATES</button></div></div>';
   var prev=cal.querySelector('.cal-prev');prev.disabled=view.getFullYear()*12+view.getMonth()<=TODAY.getFullYear()*12+TODAY.getMonth();
   var next=cal.querySelector('.cal-next');next.disabled=(view.getFullYear()*12+view.getMonth())-(TODAY.getFullYear()*12+TODAY.getMonth())>=11;
   if(anim)cal.querySelectorAll('.cal-g').forEach(function(g){g.classList.add('swap')});
@@ -1122,10 +1122,9 @@ function paint(){
     c.toggle('pv',!S.outD&&!!end&&same(d,end)&&!same(d,S.inD));
     if(c.contains('pv'))c.add('rng');
   });
-  var s=cal.querySelector('.cal-sum'),ap=cal.querySelector('.dd-apply');if(!s)return;
+  var s=cal.querySelector('.cal-sum');if(!s)return;
   if(S.inD&&S.outD){var n=Math.round((S.outD-S.inD)/864e5);s.innerHTML='<b>'+n+' night'+(n>1?'s':'')+'</b> &middot; '+fmt(S.inD)+' - '+fmt(S.outD)}
   else s.textContent=S.inD?'Select your check-out date':'Select your check-in date';
-  ap.disabled=!(S.inD&&S.outD);
 }
 function dtxt(){return S.inD?fmt(S.inD)+' - '+(S.outD?fmt(S.outD):'Add date'):'Add dates'}
 function fi(i){return i===0?0:i===3?2:1}
