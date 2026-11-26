@@ -799,7 +799,7 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 
 <section class="hero"><nav class="crumbs" aria-label="Breadcrumb"><a href="#">Home</a><i>/</i><span aria-current="page">Hotels</span></nav><h1>Find Your Stay</h1>
 <p class="lead">Hotels from Aston and our sister brands, across Indonesia and overseas. Compare, filter and check rates in one place.</p>
-<div class="bar"><div class="fld"><p class="fl">DESTINATION</p><p class="fv">Bali, Indonesia</p></div><i class="fdiv"></i>
+<div class="bar"><div class="fld"><p class="fl">DESTINATION</p><p class="fv">All destinations</p></div><i class="fdiv"></i>
 <div class="fld"><p class="fl">CHECK-IN / CHECK-OUT</p><p class="fv">Fri, 6 Nov - Sun, 8 Nov</p></div><i class="fdiv"></i>
 <div class="fld"><p class="fl">GUESTS</p><p class="fv">2 adults, 1 room</p></div>
 <a class="bbtn" href="search.html">SEARCH</a></div></section>
@@ -845,7 +845,7 @@ var bar=document.querySelector('.bar');if(!bar)return;
 var F=bar.querySelectorAll('.fld'),FV=function(i){return F[i].querySelector('.fv')};
 var TODAY=new Date(2026,10,5); /* matches the design copy (Fri 6 Nov default). Swap for new Date() in production. */
 var DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],MONL=['January','February','March','April','May','June','July','August','September','October','November','December'];
-var S={sel:{k:'city',n:'Bali'},dest:'Bali, Indonesia',inD:new Date(2026,10,6),outD:new Date(2026,10,8),a:2,c:0,r:1};
+var S={sel:null,dest:'',inD:new Date(2026,10,6),outD:new Date(2026,10,8),a:2,c:0,r:1};
 var ICON={
  search:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
  pin:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
