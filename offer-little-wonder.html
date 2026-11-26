@@ -1127,15 +1127,18 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 .ho-hd h2{flex:1 1 calc(100% - 40px);min-width:0}
 .ho-hd .od-sh{width:100%}
 }
-</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style><style>/* hotel header = one booking bar: name | dates | book */
-@container (min-width:901px){
-.ho-hd{align-items:stretch;gap:0;min-height:56px;padding:0 0 0 20px;border:1px solid rgba(159,159,159,.33);background:rgba(255,255,255,.03)}
-.ho-hd>svg:first-child{align-self:center;margin-right:10px}
-.ho-hd h2{align-self:center;padding-right:16px}
-.ho-hd .od-dt{align-self:stretch;height:auto;padding:0 20px;border:0;border-left:1px solid rgba(159,159,159,.33)}
-.ho-hd .ho-bk{width:auto;height:auto;align-self:stretch;padding:0 28px}
-.ho-r{gap:32px}
-}</style>
+</style><style id="ptv">.pattern-top video{display:block;width:100%;height:100%;object-fit:cover;animation:ptIn 1.8s var(--e) .1s both}@media(prefers-reduced-motion:reduce){.pattern-top video{animation:none}}</style><style>/* hotel header: big name + divider; booking lives in the sticky card */
+.ho-hd{display:block;padding:0 0 24px;border:0;border-bottom:1px solid rgba(255,255,255,.14);background:none;min-height:0}
+.ho-hd .ho-ey{font-size:11px;font-weight:600;letter-spacing:1.5px;line-height:16px;color:var(--sec,#a3a3a3);margin-bottom:8px}
+.od .ho-r .ho-hd h2{display:block;flex:none;font-size:28px;line-height:36px;font-weight:500;color:#fff;letter-spacing:-.1px;padding:0}
+.ho-r{gap:24px}
+.od-bkx{display:flex;flex-direction:column;gap:10px;margin-top:4px;padding-top:16px;border-top:1px solid rgba(149,149,149,.19)}
+.od-bkx .od-bkl{font-size:11px;font-weight:600;letter-spacing:1.2px;line-height:16px;color:var(--sec,#a3a3a3)}
+.od-bkx .od-dt{width:100%;height:44px;padding:0 14px;justify-content:flex-start}
+.od-bkx .od-dt img{margin-left:auto}
+.od-bkx .ho-bk{width:100%;height:44px;padding:0 24px}
+@media(max-width:700px){.od .ho-r .ho-hd h2{font-size:22px;line-height:30px}}
+</style>
 </head><body>
 <div class="page">
 <div class="pattern-top" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" poster="assets/pattern-top.png" width="887" height="425" aria-hidden="true" tabindex="-1"><source src="assets/moving-pattern.mp4" type="video/mp4"><source src="assets/moving-pattern.webm" type="video/webm"></video></div>
@@ -1148,8 +1151,9 @@ body.stuck .bar.stuck,.bar.stuck{position:static}
 <aside class="od-side ho-side"><div class="od-card"><div class="ar-ph" role="img" aria-label="Little Wonder" style="--img:url('assets/offer-littlewonder.jpg')"></div>
 <div class="od-b"><p class="od-ty od-m"><span>ASTON GRESIK</span><em>ROOM OFFERS</em></p><h1>Little Wonder</h1>
 <div class="ho-ct"><div class="od-f ho-f"><span>BOOKING PERIOD</span><b>1 Nov &ndash; 31 Dec 2026</b></div><div class="od-f ho-f"><span>STAY PERIOD</span><b>1 Nov &ndash; 31 Dec 2026</b></div></div>
+<div class="od-bkx"><span class="od-bkl">CHECK AVAILABILITY</span><button type="button" class="od-dt"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span>12 &ndash; 13 Nov 2026 &nbsp;&middot;&nbsp; 1 room, 2 adults</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button><a class="ho-bk" href="#" data-n="Aston Gresik Hotel &amp; Conference Center">BOOK THIS HOTEL<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
 <div class="od-shr"><button type="button" id="odshare"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="4" cy="8" r="1.8"/><circle cx="12" cy="3.5" r="1.8"/><circle cx="12" cy="12.5" r="1.8"/><path d="M5.7 7.1l4.6-2.7M5.7 8.9l4.6 2.7"/></svg>Share</button></div></div></div></aside>
-<div class="ho-r"><div class="ho-hd"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 14.5s4.5-4 4.5-8a4.5 4.5 0 0 0-9 0c0 4 4.5 8 4.5 8z"/><circle cx="8" cy="6.5" r="1.6"/></svg><h2>Aston Gresik Hotel &amp; Conference Center</h2><button type="button" class="od-dt"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span>12 &ndash; 13 Nov 2026 &nbsp;&middot;&nbsp; 1 room, 2 adults</span><img src="assets/chevron-down.svg" alt="" width="16" height="16"></button><a class="ho-bk" href="#" data-n="Aston Gresik Hotel &amp; Conference Center">BOOK THIS HOTEL<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+<div class="ho-r"><div class="ho-hd"><p class="ho-ey">HOTEL</p><h2>Aston Gresik Hotel &amp; Conference Center</h2></div>
 <p class="ho-lead">Escape your daily routine and enjoy a delightful family getaway at Aston Gresik Hotel &amp; Conference Center with the Little Wonder Family Stay Package. Create precious moments together with a cozy stay and special treats for your little ones.</p>
 <div class="ho-tx"><p>What you'll enjoy:</p><ul class="ho-ul"><li>1 night stay in Superior or Deluxe Room</li><li>Breakfast for 2 persons</li><li>Kids bento for 1 child</li><li>Complimentary in-room kids tent setup</li></ul><p>Contact us: +62 811 3007 707 &middot; gresikinfo@astonhotelinternationals.com</p></div>
 <section class="ho-tc"><h3>TERMS &amp; CONDITIONS</h3><ol><li>Available for direct booking and through the official website.</li><li>Subject to room availability.</li></ol></section></div>
@@ -1524,7 +1528,7 @@ function render(){
   +'<div class="dp-cb">'+mon(y,m)+mon(y2,m2)+'<p class="dp-lg"><span><i></i>Lowest Price in IDR</span><small>'+(ok?nn+(nn>1?' Nights':' Night'):'')+'</small></p></div></div></div></div></div>'
   +'<div class="dp-sc dp-sg'+(sec==='guests'?' open':'')+'"><button type="button" class="dp-ac" data-sec="guests" aria-expanded="'+(sec==='guests')+'"><span class="dp-ic">'+I.users+'</span><span class="dp-av">'+gTxt+'</span>'+I.dn+'</button><div class="dp-bx"><div>'+guests()+'</div></div></div>'
   +'<button type="button" class="dp-ap dp-apm"'+(ok?'':' disabled')+'>APPLY</button></div>'}
-function place(b){if(matchMedia('(max-width:700px)').matches){pop.style.left=pop.style.top='';return}var r=b.getBoundingClientRect(),isC=b.classList.contains('chg'),an=isC?(b.closest('p')||b.parentNode).getBoundingClientRect():r,w=pop.offsetWidth||400,cw=document.documentElement.clientWidth,L=Math.max(12,Math.min(isC||(b.classList.contains('ho-dt')&&r.left+w<=cw-12)?window.scrollX+an.left:window.scrollX+r.right-w,window.scrollX+cw-w-12));pop.style.left=L+'px';var h=pop.offsetHeight,gap=isC?12:8,top=window.scrollY+an.bottom+gap;if(an.bottom+gap+h>window.innerHeight&&an.top-gap-h>0)top=window.scrollY+an.top-gap-h;pop.style.top=top+'px';var ov=top+h-window.scrollY-window.innerHeight;if(ov>-16)window.scrollBy({top:ov+24,behavior:'smooth'})}
+function place(b){if(matchMedia('(max-width:700px)').matches){pop.style.left=pop.style.top='';return}var r=b.getBoundingClientRect(),isC=b.classList.contains('chg'),an=isC?(b.closest('p')||b.parentNode).getBoundingClientRect():r,w=pop.offsetWidth||400,cw=document.documentElement.clientWidth,L=Math.max(12,Math.min(isC||b.closest('.od-card')||(b.classList.contains('ho-dt')&&r.left+w<=cw-12)?window.scrollX+an.left:window.scrollX+r.right-w,window.scrollX+cw-w-12));pop.style.left=L+'px';var h=pop.offsetHeight,gap=isC?12:8,top=window.scrollY+an.bottom+gap;if(an.bottom+gap+h>window.innerHeight&&an.top-gap-h>0)top=window.scrollY+an.top-gap-h;pop.style.top=top+'px';var ov=top+h-window.scrollY-window.innerHeight;if(ov>-16)window.scrollBy({top:ov+24,behavior:'smooth'})}
 function show(b,sc){if(!window.__dpi&&b.classList.contains('fld')){S.a=new Date(2026,10,6);S.b=new Date(2026,10,8);window.__dpi=1}if(b.classList.contains('chg')&&!window.__dpi&&b.dataset.a){var q=b.dataset.a.split('-'),r=b.dataset.b.split('-');S.a=new Date(+q[0],+q[1]-1,+q[2]);S.b=new Date(+r[0],+r[1]-1,+r[2]);window.__dpi=1}D={a:S.a,b:S.b,rm:cl(S.rm),dest:S.dest};sec=sc||'date';view=new Date(S.a.getFullYear(),S.a.getMonth(),1);open=b;render();pop.hidden=false;place(b);void pop.offsetWidth;pop.classList.add('on');bd.classList.add('on');b.setAttribute('aria-expanded','true')}
 function hide(ret){if(!open)return;var b=open;open=null;pop.classList.remove('on');bd.classList.remove('on');b.setAttribute('aria-expanded','false');setTimeout(function(){if(!open)pop.hidden=true},260);if(ret)b.focus()}
 btns.forEach(function(b){b.setAttribute('aria-haspopup','dialog');b.setAttribute('aria-expanded','false');b.addEventListener('click',function(e){e.stopPropagation();if(open===b)hide(true);else{if(open)hide();show(b)}})});
