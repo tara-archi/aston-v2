@@ -1092,7 +1092,7 @@ function searchURL(){var p=new URLSearchParams(),s=S.sel;
   if(s&&s.n)p.set(s.k==='hotel'?'q':'city',s.n);
   if(S.inD)p.set('in',isoD(S.inD));if(S.outD)p.set('out',isoD(S.outD));
   p.set('a',S.a);p.set('c',S.c);p.set('r',S.r);return 'search.html?'+p.toString()}
-var SB=bar.querySelector('.bbtn');if(SB)SB.addEventListener('click',function(e){e.preventDefault();location.href=searchURL()});
+var SB=bar.querySelector('.bbtn');if(SB)SB.addEventListener('click',function(e){e.preventDefault();/* hotel name picked -> straight to the third-party booking engine, no result page */if(S.sel&&S.sel.k==='hotel'){window.open(thirdParty(S.sel.n),'_blank','noopener');return}location.href=searchURL()});
 
 
 /* ---------- dates ---------- */
